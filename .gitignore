@@ -122,3 +122,7 @@ package-lock.json
 # cffi temp files
 psychroc.c
 psychroc.o
+
+# R package
+.Rproj.user
+.Rhistory
