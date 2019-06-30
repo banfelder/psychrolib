@@ -46,3 +46,27 @@ get_sat_vap_pres <- function(t_dry_bulb) {
 
   exp(ln_pws)
 }
+
+#' Return humidity ratio of saturated air given dry-bulb temperature and pressure.
+#'
+#' @param t_dry_bulb numeric Dry-bulb temperature in °F [IP] or °C [SI]
+#' @param pressure numeric Atmospheric pressure in Psi [IP] or Pa [SI]
+#'
+#' @return numeric Humidity ratio of saturated air in lb_H₂O lb_Air⁻¹ [IP] or kg_H₂O kg_Air⁻¹ [SI]
+#'
+#' Reference:
+#'  ASHRAE Handbook - Fundamentals (2017) ch. 1 eqn 36, solved for W
+#' @export
+get_sat_hum_ratio <- function(t_dry_bulb, pressure) {
+
+  # TODO: vectorize this function
+  if(length(t_dry_bulb) > 1 || length(pressure) > 1) {
+    stop("all arguments must be scalars")
+  }
+
+  sat_vapor_pres <- get_sat_vap_pres(t_dry_bulb)
+  sat_hum_ratio <- 0.621945 * sat_vapor_pres / (pressure - sat_vapor_pres)
+
+  # Validity check.
+  max(sat_hum_ratio, MIN_HUM_RATIO)
+}

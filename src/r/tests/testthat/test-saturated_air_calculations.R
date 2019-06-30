@@ -29,3 +29,31 @@ test_that("saturated vapor pressure calculations match ASHRAE's tabulated result
   expect_equal(get_sat_vap_pres(100.0), 101418.0, tolerance = 0.0003, scale = 101418.0)
   expect_equal(get_sat_vap_pres(150.0), 476101.4, tolerance = 0.0003, scale = 476101.4)
 })
+
+# Test saturation humidity ratio
+# The values are tested against those published in Table 2 of ch. 1 of the 2017 ASHRAE Handbook - Fundamentals
+# Agreement is not terrific - up to 2% difference with the values published in the table
+test_that("saturated humidity ratio calculations match ASHRAE's tabulated results for IP units", {
+  set_unit_system("IP")
+  expect_equal(get_sat_hum_ratio(-58.0, 14.696), 0.0000243, tolerance = 0.01, scale = 0.0000243)
+  expect_equal(get_sat_hum_ratio(-4.0, 14.696), 0.0006373, tolerance = 0.01, scale = 0.0006373)
+  expect_equal(get_sat_hum_ratio(23.0, 14.696), 0.0024863, tolerance = 0.005, scale = 0.0024863)
+  expect_equal(get_sat_hum_ratio(41.0, 14.696), 0.005425, tolerance = 0.005, scale = 0.005425)
+  expect_equal(get_sat_hum_ratio(77.0, 14.696), 0.020173, tolerance = 0.005, scale = 0.020173)
+  expect_equal(get_sat_hum_ratio(122.0, 14.696), 0.086863, tolerance = 0.01, scale = 0.086863)
+  expect_equal(get_sat_hum_ratio(185.0, 14.696), 0.838105, tolerance = 0.02, scale = 0.838105)
+})
+
+# Test saturation humidity ratio
+# The values are tested against those published in Table 2 of ch. 1 of the 2017 ASHRAE Handbook - Fundamentals
+# Agreement is not terrific - up to 2% difference with the values published in the table
+test_that("saturated humidity ratio calculations match ASHRAE's tabulated results for SI units", {
+  set_unit_system("SI")
+  expect_equal(get_sat_hum_ratio(-50.0, 101325), 0.0000243, tolerance = 0.01, scale = 0.0000243)
+  expect_equal(get_sat_hum_ratio(-20.0, 101325), 0.0006373, tolerance = 0.01, scale = 0.0006373)
+  expect_equal(get_sat_hum_ratio(-5.0, 101325), 0.0024863, tolerance = 0.005, scale = 0.0024863)
+  expect_equal(get_sat_hum_ratio(5.0, 101325), 0.005425, tolerance = 0.005, scale = 0.005425)
+  expect_equal(get_sat_hum_ratio(25, 101325), 0.020173, tolerance = 0.005, scale = 0.020173)
+  expect_equal(get_sat_hum_ratio(50.0, 101325), 0.086863, tolerance = 0.01, scale = 0.086863)
+  expect_equal(get_sat_hum_ratio(85.0, 101325), 0.838105, tolerance = 0.02, scale = 0.838105)
+})
