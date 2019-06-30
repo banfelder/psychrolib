@@ -1,4 +1,5 @@
 test_that("helper functions work sanely before initialization", {
+  init_psychrolib()
   expect_true(is.na(get_unit_system()))
   expect_error(is_ip())
 })

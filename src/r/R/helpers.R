@@ -11,6 +11,15 @@ PSYCHROLIB_UNITS_OPTIONS <- c("IP", "SI")
 #' Tolerance of temperature calculations
 PSYCHROLIB_TOLERANCE <- NA_real_
 
+#' Approximate a freshly loaded package
+#'
+#' This exists only to support testing, and is not exported
+init_psychrolib <- function() {
+  PSYCHROLIB_UNITS <<- NA_character_
+  PSYCHROLIB_UNITS_OPTIONS <<- c("IP", "SI")
+  PSYCHROLIB_TOLERANCE <<- NA_real_
+}
+
 #' Set the system of units to use (SI or IP).
 #'
 #' @param units string indicating the system of units chosen ("SI" or "IP")
