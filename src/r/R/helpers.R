@@ -2,22 +2,23 @@
 # Helper functions
 #######################################################################################################
 
-#' The system of units in use
-PSYCHROLIB_UNITS <- NA_character_
+PKG_ENV <- new.env()
 
-#' The options for PSYCHROLIB_UNITS
+# The system of units in use
+PKG_ENV$UNITS <- NA_character_
+
+# Tolerance of temperature calculations
+PKG_ENV$TOLERANCE <- NA_real_
+
+# The options for PSYCHROLIB_UNITS
 PSYCHROLIB_UNITS_OPTIONS <- c("IP", "SI")
-
-#' Tolerance of temperature calculations
-PSYCHROLIB_TOLERANCE <- NA_real_
 
 #' Approximate a freshly loaded package
 #'
 #' This exists only to support testing, and is not exported
 init_psychrolib <- function() {
-  PSYCHROLIB_UNITS <<- NA_character_
-  PSYCHROLIB_UNITS_OPTIONS <<- c("IP", "SI")
-  PSYCHROLIB_TOLERANCE <<- NA_real_
+  PKG_ENV$UNITS <- NA_character_
+  PKG_ENV$TOLERANCE <- NA_real_
 }
 
 #' Set the system of units to use (SI or IP).
@@ -34,8 +35,8 @@ set_unit_system <- function(units) {
   PSYCHROLIB_TOLERANCES <- c(IP = 0.001 * 9. / 5., SI = 0.001)
 
   if (units %in% PSYCHROLIB_UNITS_OPTIONS) {
-    PSYCHROLIB_UNITS <<- units
-    PSYCHROLIB_TOLERANCE <<- PSYCHROLIB_TOLERANCES[units]
+    PKG_ENV$UNITS <- units
+    PKG_ENV$TOLERANCE <- PSYCHROLIB_TOLERANCES[units]
   } else {
     stop("The system of units has to be either SI or IP.")
   }
@@ -46,7 +47,7 @@ set_unit_system <- function(units) {
 #' @return string indicating system of units in use ("SI" or "IP")
 #' @export
 get_unit_system <- function() {
-  PSYCHROLIB_UNITS
+  PKG_ENV$UNITS
 }
 
 #' Check whether the system in use is IP or SI.
@@ -54,11 +55,11 @@ get_unit_system <- function() {
 #' @return boolean TRUE if unit system is IP
 #' @export
 is_ip <- function() {
-  if (is.na(PSYCHROLIB_UNITS)) {
+  if (is.na(PKG_ENV$UNITS)) {
     stop("The system of units has not been defined.")
-  } else if (PSYCHROLIB_UNITS == "IP") {
+  } else if (PKG_ENV$UNITS == "IP") {
     return(TRUE)
-  } else if (PSYCHROLIB_UNITS == "SI") {
+  } else if (PKG_ENV$UNITS == "SI") {
     return(FALSE)
   } else {
     stop("The system of units is not correctly defined.")
