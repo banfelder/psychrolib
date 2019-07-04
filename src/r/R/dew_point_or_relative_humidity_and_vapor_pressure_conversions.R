@@ -20,3 +20,20 @@ get_vap_pres_from_rel_hum <- function(t_dry_bulb, rel_hum) {
 
   rel_hum * get_sat_vap_pres(t_dry_bulb)
 }
+
+#' Return relative humidity given dry-bulb temperature and vapor pressure.
+#'
+#' @param t_dry_bulb numeric Dry-bulb temperature in °F [IP] or °C [SI]
+#' @param vap_pres numeric Partial pressure of water vapor in moist air in Psi [IP] or Pa [SI]
+#'
+#' @return numeric Relative humidity in range [0, 1]
+#'
+#' Reference:
+#'   ASHRAE Handbook - Fundamentals (2017) ch. 1 eqn 12, 22
+#' @export
+get_rel_hum_from_vap_pres <- function(t_dry_bulb, vap_pres) {
+  if (vap_pres < 0.0) {
+    stop("Partial pressure of water vapor in moist air cannot be negative")
+  }
+  vap_pres / get_sat_vap_pres(t_dry_bulb)
+}
