@@ -1,3 +1,5 @@
+# TODO: the original library does not have an explicit test for get_degree_of_saturation()
+
 # Values are compared against values calculated with Excel
 test_that("moist air calculations match values calculated with Excel using IP units", {
   set_unit_system("IP")

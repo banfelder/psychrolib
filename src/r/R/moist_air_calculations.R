@@ -2,6 +2,33 @@
 # Moist Air Calculations
 #######################################################################################################
 
+#' Return the degree of saturation (i.e humidity ratio of the air / humidity ratio of the air at saturation
+#' at the same temperature and pressure) given dry-bulb temperature, humidity ratio, and atmospheric pressure.
+#'
+#' @param t_dry_bulb numeric Dry-bulb temperature in °F [IP] or °C [SI]
+#' @param hum_ratio numeric Humidity ratio in lb_H₂O lb_Air⁻¹ [IP] or kg_H₂O kg_Air⁻¹ [SI]
+#' @param pressure numeric Atmospheric pressure in Psi [IP] or Pa [SI]
+#'
+#' @return numeric Degree of saturation in arbitrary unit
+#'
+#' Reference:
+#'   ASHRAE Handbook - Fundamentals (2009) ch. 1 eqn 12
+#'
+#' Notes:
+#'   This definition is absent from the 2017 Handbook. Using 2009 version instead.
+#' @export
+get_degree_of_saturation <- function(t_dry_bulb, hum_ratio, pressure) {
+
+  if(hum_ratio < 0.0) {
+    stop("Humidity ratio is negative")
+  }
+  bounded_hum_ratio <- max(hum_ratio, MIN_HUM_RATIO)
+
+  sat_hum_ratio <- get_sat_hum_ratio(t_dry_bulb, pressure)
+  bounded_hum_ratio / sat_hum_ratio
+
+}
+
 #' Return moist air enthalpy given dry-bulb temperature and humidity ratio.
 #'
 #' @param t_dry_bulb numeric Dry-bulb temperature in °F [IP] or °C [SI]
