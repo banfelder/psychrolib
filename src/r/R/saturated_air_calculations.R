@@ -70,3 +70,18 @@ get_sat_hum_ratio <- function(t_dry_bulb, pressure) {
   # Validity check.
   max(sat_hum_ratio, MIN_HUM_RATIO)
 }
+
+#' Return saturated air enthalpy given dry-bulb temperature and pressure.
+#'
+#' @param t_dry_bulb numeric Dry-bulb temperature in °F [IP] or °C [SI]
+#' @param pressure numeric Atmospheric pressure in Psi [IP] or Pa [SI]
+#'
+#' @return numeric Saturated air enthalpy in Btu lb⁻¹ [IP] or J kg⁻¹ [SI]
+#'
+#' Reference:
+#'  ASHRAE Handbook - Fundamentals (2017) ch. 1
+#' @export
+get_sat_air_enthalpy <- function(t_dry_bulb, pressure) {
+  sat_hum_ratio <- get_sat_hum_ratio(t_dry_bulb, pressure)
+  get_moist_air_enthalpy(t_dry_bulb, sat_hum_ratio)
+}
