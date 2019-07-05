@@ -16,8 +16,8 @@ test_that("Bulk computation of psychrometric properties return results consisten
   expect_equivalent_abs(results['t_wet_bulb'], 65.0, tolerance = 0.1)
 
   # Reverse calculation: recalculate wet bulb temperature from relative humidity
-  # results <- calc_psychrometrics_from_rel_hum(100.0, results['rel_hum'], 14.696)
-  # expect_equivalent_abs(results['t_wet_bulb'], 65.0, tolerance = 0.1)
+  results <- calc_psychrometrics_from_rel_hum(100.0, results['rel_hum'], 14.696)
+  expect_equivalent_abs(results['t_wet_bulb'], 65.0, tolerance = 0.1)
 })
 
 test_that("Bulk computation of psychrometric properties return results consistent with ASHRAE handbook example in SI units", {
@@ -34,6 +34,6 @@ test_that("Bulk computation of psychrometric properties return results consisten
   expect_equivalent_abs(results['t_wet_bulb'], 20.0, tolerance = 0.1)
 
   # Reverse calculation: recalculate wet bulb temperature from relative humidity
-  # results <- calc_psychrometrics_from_rel_hum(40.0, results['rel_hum'], 101325)
-  # expect_equivalent_abs(results['t_wet_bulb'], 20.0, tolerance = 0.1)
+  results <- calc_psychrometrics_from_rel_hum(40.0, results['rel_hum'], 101325)
+  expect_equivalent_abs(results['t_wet_bulb'], 20.0, tolerance = 0.1)
 })
