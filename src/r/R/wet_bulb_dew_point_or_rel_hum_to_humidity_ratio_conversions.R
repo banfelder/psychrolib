@@ -60,6 +60,21 @@ get_rel_hum_from_hum_ratio <- function(t_dry_bulb, hum_ratio, pressure) {
   get_rel_hum_from_vap_pres(t_dry_bulb, vap_pres)
 }
 
+#' Return humidity ratio given dew-point temperature and pressure.
+#'
+#' @param t_dew_point numeric Dew-point temperature in °F [IP] or °C [SI]
+#' @param pressure Atmospheric pressure in Psi [IP] or Pa [SI]
+#'
+#' @return numeric Humidity ratio in lb_H₂O lb_Air⁻¹ [IP] or kg_H₂O kg_Air⁻¹ [SI]
+#'
+#' Reference:
+#'   ASHRAE Handbook - Fundamentals (2017) ch. 1 eqn 13
+#' @export
+get_hum_ratio_from_t_dew_point <- function(t_dew_point, pressure) {
+  vap_pres <- get_sat_vap_pres(t_dew_point)
+  get_hum_ratio_from_vap_pres(vap_pres, pressure)
+}
+
 #' Return dew-point temperature given dry-bulb temperature, humidity ratio, and pressure.
 #'
 #' @param t_dry_bulb numeric Dry-bulb temperature in °F [IP] or °C [SI]

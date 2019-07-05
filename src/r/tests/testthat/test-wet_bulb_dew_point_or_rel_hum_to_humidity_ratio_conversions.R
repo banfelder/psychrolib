@@ -1,5 +1,6 @@
 # TODO: add explicit tests for get_t_dew_point_from_hum_ratio; none were in the original library
 # TODO: add explicit tests for get_rel_hum_from_hum_ratio; none were in the original library
+# TODO: add explicit tests for get_hum_ratio_from_t_dew_point; none were in the original library
 
 ## Test of relationships between humidity ratio and wet bulb temperature in IP units
 ## The formulae are tested for two conditions, one above freezing and the other below
