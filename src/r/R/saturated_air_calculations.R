@@ -20,7 +20,7 @@ get_sat_vap_pres <- function(t_dry_bulb) {
 
   if (is_ip()) {
     if (t_dry_bulb < -148.0 || t_dry_bulb > 392.0) {
-      stop("Dry bulb temperature must be in range [-148, 392]°F")
+      stop("Dry bulb temperature must be in range [-148, 392]\u00B0F")
     }
     t <- get_t_rankine_from_t_fahrenheit(t_dry_bulb)
     if (t_dry_bulb <= 32.0) {
@@ -32,7 +32,7 @@ get_sat_vap_pres <- function(t_dry_bulb) {
     }
   } else {
     if (t_dry_bulb < -100.0 || t_dry_bulb > 200.0) {
-      stop("Dry bulb temperature must be in range [-100, 200]°C")
+      stop("Dry bulb temperature must be in range [-100, 200]\u00B0C")
     }
     t <- get_t_kelvin_from_t_celsius(t_dry_bulb)
     if (t_dry_bulb < 0) {
