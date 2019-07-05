@@ -36,3 +36,38 @@ calc_psychrometrics_from_t_wet_bulb <- function(t_dry_bulb, t_wet_bulb, pressure
     moist_air_enthalpy = moist_air_enthalpy, moist_air_volume = moist_air_volume,
     degree_of_saturation = degree_of_saturation)
 }
+
+#' Utility function to calculate humidity ratio, wet-bulb temperature, relative humidity,
+#'  vapour pressure, moist air enthalpy, moist air volume, and degree of saturation of air given
+#'  dry-bulb temperature, dew-point temperature, and pressure.
+#'
+#' Args:
+#' @param t_dry_bulb numeric Dry-bulb temperature in °F [IP] or °C [SI]
+#' @param t_dew_point numeric Dew-point temperature in °F [IP] or °C [SI]
+#' @param pressure numeric Atmospheric pressure in Psi [IP] or Pa [SI]
+#'
+#' @return numeric vector with named components for each psychrometric value computed
+#' Notes:
+#'   Result vector contains:
+#'     hum_ratio: Humidity ratio in lb_H₂O lb_Air⁻¹ [IP] or kg_H₂O kg_Air⁻¹ [SI]
+#'     t_wet_bulb: Wet-bulb temperature in °F [IP] or °C [SI]
+#'     rel_hum: Relative humidity in range [0, 1]
+#'     vap_pres: Partial pressure of water vapor in moist air in Psi [IP] or Pa [SI]
+#'     moist_air_enthalpy: Moist air enthalpy in Btu lb⁻¹ [IP] or J kg⁻¹ [SI]
+#'     moist_air_volume: Specific volume of moist air in ft³ lb⁻¹ [IP] or in m³ kg⁻¹ [SI]
+#'     degree_of_saturation: Degree of saturation [unitless]
+#' @export
+calc_psychrometrics_from_t_dew_point <- function(t_dry_bulb, t_dew_point, pressure) {
+
+  hum_ratio <- get_hum_ratio_from_t_dew_point(t_dew_point, pressure)
+  t_wet_bulb <- get_t_wet_bulb_from_hum_ratio(t_dry_bulb, hum_ratio, pressure)
+  rel_hum <- get_rel_hum_from_hum_ratio(t_dry_bulb, hum_ratio, pressure)
+  vap_pres <- get_vap_pres_from_hum_ratio(hum_ratio, pressure)
+  moist_air_enthalpy <- get_moist_air_enthalpy(t_dry_bulb, hum_ratio)
+  moist_air_volume <- get_moist_air_volume(t_dry_bulb, hum_ratio, pressure)
+  degree_of_saturation <- get_degree_of_saturation(t_dry_bulb, hum_ratio, pressure)
+
+  c(hum_ratio = hum_ratio, t_wet_bulb = t_wet_bulb, rel_hum = rel_hum, vap_pres = vap_pres,
+    moist_air_enthalpy = moist_air_enthalpy, moist_air_volume = moist_air_volume,
+    degree_of_saturation = degree_of_saturation)
+}

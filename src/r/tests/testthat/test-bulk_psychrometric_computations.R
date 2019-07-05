@@ -12,8 +12,8 @@ test_that("Bulk computation of psychrometric properties return results consisten
   expect_equivalent_rel(results['moist_air_volume'], 14.22, tolerance = 0.01)
 
   # Reverse calculation: recalculate wet bulb temperature from dew point temperature
-  # results <- calc_psychrometrics_from_t_dew_point(100.0, results['t_dew_point'], 14.696)
-  # expect_equivalent_abs(results['t_wet_bulb'], 65.0, tolerance = 0.1)
+  results <- calc_psychrometrics_from_t_dew_point(100.0, results['t_dew_point'], 14.696)
+  expect_equivalent_abs(results['t_wet_bulb'], 65.0, tolerance = 0.1)
 
   # Reverse calculation: recalculate wet bulb temperature from relative humidity
   # results <- calc_psychrometrics_from_rel_hum(100.0, results['rel_hum'], 14.696)
@@ -30,8 +30,8 @@ test_that("Bulk computation of psychrometric properties return results consisten
   expect_equivalent_rel(results['moist_air_volume'], 0.896, tolerance = 0.01)
 
   # Reverse calculation: recalculate wet bulb temperature from dew point temperature
-  # results <- calc_psychrometrics_from_t_dew_point(40.0, results['t_dew_point'], 101325)
-  # expect_equivalent_abs(results['t_wet_bulb'], 20.0, tolerance = 0.1)
+  results <- calc_psychrometrics_from_t_dew_point(40.0, results['t_dew_point'], 101325)
+  expect_equivalent_abs(results['t_wet_bulb'], 20.0, tolerance = 0.1)
 
   # Reverse calculation: recalculate wet bulb temperature from relative humidity
   # results <- calc_psychrometrics_from_rel_hum(40.0, results['rel_hum'], 101325)
