@@ -9,3 +9,11 @@ expect_equal_rel <- function(object, expected, tolerance) {
 expect_equal_abs <- function(object, expected, tolerance) {
   expect_equal(object, expected, tolerance, scale = 1.0)
 }
+
+expect_equivalent_rel <- function(object, expected, tolerance) {
+  expect_equivalent(object, expected, tolerance, scale = abs(expected))
+}
+
+expect_equivalent_abs <- function(object, expected, tolerance) {
+  expect_equivalent(object, expected, tolerance, scale = 1.0)
+}
