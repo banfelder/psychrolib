@@ -1,0 +1,42 @@
+#######################################################################################################
+# Conversions from wet-bulb temperature, dew-point temperature, or relative humidity to humidity ratio
+#######################################################################################################
+
+#' Return humidity ratio given dry-bulb temperature, wet-bulb temperature, and pressure.
+#'
+#' @param t_dry_bulb numeric Dry-bulb temperature in °F [IP] or °C [SI]
+#' @param t_wet_bulb numeric Wet-bulb temperature in °F [IP] or °C [SI]
+#' @param pressure numeric Atmospheric pressure in Psi [IP] or Pa [SI]
+#'
+#' @return numeric Humidity ratio in lb_H₂O lb_Air⁻¹ [IP] or kg_H₂O kg_Air⁻¹ [SI]
+#'
+#' Reference:
+#'   ASHRAE Handbook - Fundamentals (2017) ch. 1 eqn 33 and 35
+#' @export
+get_hum_ratio_from_t_wet_bulb <- function(t_dry_bulb, t_wet_bulb, pressure) {
+
+  if (t_wet_bulb > t_dry_bulb) {
+    stop("Wet bulb temperature is above dry bulb temperature")
+  }
+
+  ws_star <- get_sat_hum_ratio(t_wet_bulb, pressure)
+
+  if (is_ip()) {
+    if (t_wet_bulb >= 32.0) {
+      hum_ratio <- ((1093.0 - 0.556 * t_wet_bulb) * ws_star - 0.240 * (t_dry_bulb - t_wet_bulb)) /
+                    (1093.0 + 0.444 * t_dry_bulb - t_wet_bulb)
+    } else {
+      hum_ratio <- ((1220.0 - 0.04 * t_wet_bulb) * ws_star - 0.240 * (t_dry_bulb - t_wet_bulb)) /
+                   (1220.0 + 0.444 * t_dry_bulb - 0.48 * t_wet_bulb)
+    }
+  } else {
+    if (t_wet_bulb >= 0.0) {
+      hum_ratio <- ((2501.0 - 2.326 * t_wet_bulb) * ws_star - 1.006 * (t_dry_bulb - t_wet_bulb)) /
+                   (2501.0 + 1.86 * t_dry_bulb - 4.186 * t_wet_bulb)
+    } else {
+      hum_ratio <- ((2830.0 - 0.24 * t_wet_bulb) * ws_star - 1.006 * (t_dry_bulb - t_wet_bulb)) /
+                   (2830.0 + 1.86 * t_dry_bulb - 2.1 * t_wet_bulb)
+    }
+  }
+  max(hum_ratio, MIN_HUM_RATIO)
+}
