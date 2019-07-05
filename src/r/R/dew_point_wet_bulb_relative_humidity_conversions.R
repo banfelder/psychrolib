@@ -2,6 +2,27 @@
 # Conversions between dew point, wet bulb, and relative humidity
 #######################################################################################################
 
+#' Return wet-bulb temperature given dry-bulb temperature, dew-point temperature, and pressure.
+#'
+#' @param t_dry_bulb numeric Dry-bulb temperature in °F [IP] or °C [SI]
+#' @param t_dew_point numeric Dew-point temperature in °F [IP] or °C [SI]
+#' @param pressure numeric Atmospheric pressure in Psi [IP] or Pa [SI]
+#'
+#' @return numeric Wet-bulb temperature in °F [IP] or °C [SI]
+#'
+#' Reference:
+#'   ASHRAE Handbook - Fundamentals (2017) ch. 1
+#' @export
+get_t_wet_bulb_from_t_dew_point <- function(t_dry_bulb, t_dew_point, pressure) {
+
+  if(t_dew_point > t_dry_bulb) {
+    stop("Dew point temperature is above dry bulb temperature")
+  }
+
+  hum_ratio <- get_hum_ratio_from_t_dew_point(t_dew_point, pressure)
+  get_t_wet_bulb_from_hum_ratio(t_dry_bulb, hum_ratio, pressure)
+}
+
 #' Return relative humidity given dry-bulb temperature and dew-point temperature.
 #'
 #' @param t_dry_bulb numeric Dry-bulb temperature in °F [IP] or °C [SI]
