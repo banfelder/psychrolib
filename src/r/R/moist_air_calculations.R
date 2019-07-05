@@ -2,6 +2,25 @@
 # Moist Air Calculations
 #######################################################################################################
 
+#' Return Vapor pressure deficit given dry-bulb temperature, humidity ratio, and pressure.
+#'
+#' @param t_dry_bulb numeric Dry-bulb temperature in °F [IP] or °C [SI]
+#' @param hum_ratio numeric Humidity ratio in lb_H₂O lb_Air⁻¹ [IP] or kg_H₂O kg_Air⁻¹ [SI]
+#' @param pressure numeric Atmospheric pressure in Psi [IP] or Pa [SI]
+#'
+#' @return numeric Vapor pressure deficit in Psi [IP] or Pa [SI]
+#'
+#' Reference:
+#'   Oke (1987) eqn 2.13a
+#' @export
+get_vapor_pressure_deficit <- function(t_dry_bulb, hum_ratio, pressure) {
+  if (hum_ratio < 0.0) {
+    stop("Humidity ratio is negative")
+  }
+  rel_hum <- get_rel_hum_from_hum_ratio(t_dry_bulb, hum_ratio, pressure)
+  get_sat_vap_pres(t_dry_bulb) * (1.0 - rel_hum)
+}
+
 #' Return the degree of saturation (i.e humidity ratio of the air / humidity ratio of the air at saturation
 #' at the same temperature and pressure) given dry-bulb temperature, humidity ratio, and atmospheric pressure.
 #'

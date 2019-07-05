@@ -1,4 +1,5 @@
 # TODO: the original library does not have an explicit test for get_degree_of_saturation()
+# TODO: the original library does not have an explicit test for get_vapor_pressure_deficit()
 
 # Values are compared against values calculated with Excel
 test_that("moist air calculations match values calculated with Excel using IP units", {
