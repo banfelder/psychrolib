@@ -40,6 +40,16 @@ test_that("reciprocal relationships between vapor pressure and sew point hold in
   expect_equal_abs(get_t_dew_point_from_vap_pres(60.0, vap_pres), 50.0, tolerance = 0.001)
 })
 
+
+# Test of relationships between wet bulb temperature and relative humidity
+# This test was known to cause a convergence issue in GetTDewPointFromVapPres
+# in versions of PsychroLib <= 2.0.0
+# This test does not have an IP units analog in the original library.
+test_that("get_t_dew_point_from_vap_pres converges for a known problematic case", {
+  set_unit_system("SI")
+  expect_equal_rel(get_t_wet_bulb_from_rel_hum(7.0, 0.61, 100000), 3.92667433781955, tolerance = 0.001)
+})
+
 # Test that the NR in GetTDewPointFromVapPres converges in IP units.
 # This test was known problem in versions of PsychroLib <= 2.0.0
 test_that("the NR in GetTDewPointFromVapPres converges in IP units", {
