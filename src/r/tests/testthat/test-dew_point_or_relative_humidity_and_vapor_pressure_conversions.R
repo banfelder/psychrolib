@@ -42,38 +42,40 @@ test_that("reciprocal relationships between vapor pressure and sew point hold in
 
 # Test that the NR in GetTDewPointFromVapPres converges in IP units.
 # This test was known problem in versions of PsychroLib <= 2.0.0
-# test_that("the NR in GetTDewPointFromVapPres converges in IP units", {
-#
-#   set_unit_system("IP")
-#
-#   t_dry_bulb <- seq(-148.0, 392.0, by = 1.0)
-#   rel_hum <- seq(0, 1, by = 0.1)
-#   pressure <- seq(8.6, 17.4, by = 1.0)
-#
-#   for (t in t_dry_bulb) {
-#     for (rh in rel_hum) {
-#       for (p in pressure) {
-#         get_t_wet_bulb_from_rel_hum(t, rh, p)   # TODO: why call this, and how to assert that this converges?
-#       }
-#     }
-#   }
-# })
+test_that("the NR in GetTDewPointFromVapPres converges in IP units", {
+
+  set_unit_system("IP")
+
+  # TODO: implement optional finer grained testing
+  t_dry_bulb <- seq(-148.0, 392.0, length.out = 5)    # was by = 1.0 in original library
+  rel_hum <- seq(0, 1, length.out = 5)                # was by = 0.1 in original library
+  pressure <- seq(8.6, 17.4, length.out = 5)          # was by = 1.0 in original library
+
+  for (t in t_dry_bulb) {
+    for (rh in rel_hum) {
+      for (p in pressure) {
+        expect_type(get_t_wet_bulb_from_rel_hum(!!t, !!rh, !!p), "double") # see testthat::quasi_label
+      }
+    }
+  }
+})
 
 # Test that the NR in GetTDewPointFromVapPres converges in SI units.
 # This test was known problem in versions of PsychroLib <= 2.0.0
-# test_that("the NR in GetTDewPointFromVapPres converges in SI units", {
-#
-#   set_unit_system("SI")
-#
-#   t_dry_bulb <- seq(-100.0, 200.0, by = 1.0)
-#   rel_hum <- seq(0, 1, by = 0.1)
-#   pressure <- seq(60000.0, 120000.0, by = 1.0)
-#
-#   for (t in t_dry_bulb) {
-#     for (rh in rel_hum) {
-#       for (p in pressure) {
-#         get_t_wet_bulb_from_rel_hum(t, rh, p)   # TODO: why call this, and how to assert that this converges?
-#       }
-#     }
-#   }
-# })
+test_that("the NR in GetTDewPointFromVapPres converges in SI units", {
+
+  set_unit_system("SI")
+
+  # TODO: implement optional finer grained testing
+  t_dry_bulb <- seq(-100.0, 200.0, length.out = 5)       # was by = 1.0 in original library
+  rel_hum <- seq(0, 1, length.out = 5)                   # was by = 0.1 in original library
+  pressure <- seq(60000.0, 120000.0, length.out = 5)     # was by = 10000 in original library
+
+  for (t in t_dry_bulb) {
+    for (rh in rel_hum) {
+      for (p in pressure) {
+        expect_type(get_t_wet_bulb_from_rel_hum(!!t, !!rh, !!p), "double") # see testthat::quasi_label
+      }
+    }
+  }
+})
