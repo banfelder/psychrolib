@@ -8,7 +8,7 @@ test_that("relationships between humidity ratio and vapour pressure are correct 
 })
 
 # Humidity ratio values to test against are calculated with Excel
-test_that("relationships between humidity ratio and vapour pressure are correct in IP units", {
+test_that("relationships between humidity ratio and vapour pressure are correct in SI units", {
   set_unit_system("SI")
   hum_ratio <- get_hum_ratio_from_vap_pres(3169.7, 95461) # conditions at 25 C, std atm pressure at 500 m
   expect_equal_rel(hum_ratio, 0.0213603998047487, tolerance = 0.000001)
