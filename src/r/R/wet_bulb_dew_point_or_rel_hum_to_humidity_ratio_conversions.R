@@ -2,6 +2,57 @@
 # Conversions from wet-bulb temperature, dew-point temperature, or relative humidity to humidity ratio
 #######################################################################################################
 
+#' Return wet-bulb temperature given dry-bulb temperature, humidity ratio, and pressure.
+#'
+#' @param t_dry_bulb numeric Dry-bulb temperature in °F [IP] or °C [SI]
+#' @param hum_ratio numeric Humidity ratio in lb_H₂O lb_Air⁻¹ [IP] or kg_H₂O kg_Air⁻¹ [SI]
+#' @param pressure numeric Atmospheric pressure in Psi [IP] or Pa [SI]
+#'
+#' @return numeric Wet-bulb temperature in °F [IP] or °C [SI]
+#'
+#' Reference:
+#'   ASHRAE Handbook - Fundamentals (2017) ch. 1 eqn 33 and 35 solved for Tstar
+#' @export
+get_t_wet_bulb_from_hum_ratio <- function(t_dry_bulb, hum_ratio, pressure) {
+
+  if (hum_ratio < 0.0) {
+    stop("Humidity ratio cannot be negative")
+  }
+  bounded_hum_ratio <- max(hum_ratio, MIN_HUM_RATIO)
+
+  t_dew_point <- get_t_dew_point_from_hum_ratio(t_dry_bulb, hum_ratio, pressure)
+
+  # Initial guess
+  t_wet_bulb_sup <- t_dry_bulb
+  t_wet_bulb_inf <- t_dew_point
+  t_wet_bulb <- (t_wet_bulb_inf + t_wet_bulb_sup) / 2.0
+
+  index <- 1
+  # Bisection loop
+  while((t_wet_bulb_sup - t_wet_bulb_inf) > PKG_ENV$TOLERANCE) {
+
+    # Compute humidity ratio at temperature Tstar
+    w_star <- get_hum_ratio_from_t_wet_bulb(t_dry_bulb, t_wet_bulb, pressure)
+
+    # Get new boundds
+    if (w_star > bounded_hum_ratio) {
+      t_wet_bulb_sup <- t_wet_bulb
+    } else {
+      t_wet_bulb_inf <- t_wet_bulb
+    }
+
+    # New guess of wet bulb temperature
+    t_wet_bulb <- (t_wet_bulb_inf + t_wet_bulb_sup) / 2.0
+
+    if (index >= MAX_ITER_COUNT) {
+      stop("Convergence not reached in GetTWetBulbFromHumRatio. Stopping.")
+    }
+
+    index <- index + 1
+  }
+  return(t_wet_bulb)
+}
+
 #' Return humidity ratio given dry-bulb temperature, wet-bulb temperature, and pressure.
 #'
 #' @param t_dry_bulb numeric Dry-bulb temperature in °F [IP] or °C [SI]
