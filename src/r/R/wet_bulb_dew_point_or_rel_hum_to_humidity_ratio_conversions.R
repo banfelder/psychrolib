@@ -41,6 +41,25 @@ get_hum_ratio_from_t_wet_bulb <- function(t_dry_bulb, t_wet_bulb, pressure) {
   max(hum_ratio, MIN_HUM_RATIO)
 }
 
+#' Return humidity ratio given dry-bulb temperature, relative humidity, and pressure.
+#'
+#' @param t_dry_bulb numeric Dry-bulb temperature in °F [IP] or °C [SI]
+#' @param rel_hum numeric Relative humidity in range [0, 1]
+#' @param pressure numeric Atmospheric pressure in Psi [IP] or Pa [SI]
+#'
+#' @return numeric Humidity ratio in lb_H₂O lb_Air⁻¹ [IP] or kg_H₂O kg_Air⁻¹ [SI]
+#'
+#' Reference:
+#'   ASHRAE Handbook - Fundamentals (2017) ch. 1
+#' @export
+get_hum_ratio_from_rel_hum <- function(t_dry_bulb, rel_hum, pressure) {
+  if (rel_hum < 0.0 || rel_hum > 1.0) {
+    stop("Relative humidity is outside range [0, 1]")
+  }
+  vap_pres <- get_vap_pres_from_rel_hum(t_dry_bulb, rel_hum)
+  get_hum_ratio_from_vap_pres(vap_pres, pressure)
+}
+
 #' Return relative humidity given dry-bulb temperature, humidity ratio, and pressure.
 #'
 #' @param t_dry_bulb numeric Dry-bulb temperature in °F [IP] or °C [SI]
