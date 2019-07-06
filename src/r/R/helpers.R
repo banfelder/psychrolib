@@ -2,7 +2,7 @@
 # Helper functions
 #######################################################################################################
 
-PKG_ENV <- new.env()
+PKG_ENV <- new.env(parent = emptyenv())
 
 # The system of units in use
 PKG_ENV$UNITS <- NA_character_
