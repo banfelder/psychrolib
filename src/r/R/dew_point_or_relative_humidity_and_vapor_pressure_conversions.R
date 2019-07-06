@@ -154,7 +154,6 @@ get_t_dew_point_from_vap_pres <- function(t_dry_bulb, vap_pres) {
     index <- index + 1
   }
 
-  message(paste0("Convergence achieved in ", index, " iterations"))
   min(t_dew_point, t_dry_bulb)
 }
 
