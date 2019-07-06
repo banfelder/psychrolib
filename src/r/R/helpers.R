@@ -13,9 +13,9 @@ PKG_ENV$TOLERANCE <- NA_real_
 # The options for PSYCHROLIB_UNITS
 PSYCHROLIB_UNITS_OPTIONS <- c("IP", "SI")
 
-#' Approximate a freshly loaded package
-#'
-#' This exists only to support testing, and is not exported
+# Approximate a freshly loaded package
+#
+# This exists only to support testing, and is not exported
 init_psychrolib <- function() {
   PKG_ENV$UNITS <- NA_character_
   PKG_ENV$TOLERANCE <- NA_real_
