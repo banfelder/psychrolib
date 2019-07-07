@@ -4,11 +4,11 @@
 
 #' Return the specific humidity from humidity ratio (aka mixing ratio).
 #'
-#' @param hum_ratio numeric Humidity ratio in lb_H₂O lb_Dry_Air⁻¹ [IP] or kg_H₂O kg_Dry_Air⁻¹ [SI]
+#' @param hum_ratio Humidity ratio in lb_H₂O lb_Dry_Air⁻¹ [IP] or kg_H₂O kg_Dry_Air⁻¹ [SI]
 #'
-#' @return numeric Specific humidity in lb_H₂O lb_Air⁻¹ [IP] or kg_H₂O kg_Air⁻¹ [SI]
+#' @return Specific humidity in lb_H₂O lb_Air⁻¹ [IP] or kg_H₂O kg_Air⁻¹ [SI]
 #'
-#' Reference:
+#' @section Reference:
 #'   ASHRAE Handbook - Fundamentals (2017) ch. 1 eqn 9b
 #' @export
 get_specific_hum_from_hum_ratio <- function(hum_ratio) {
@@ -21,11 +21,11 @@ get_specific_hum_from_hum_ratio <- function(hum_ratio) {
 
 #' Return the humidity ratio (aka mixing ratio) from specific humidity.
 #'
-#' @param specific_hum numeric Specific humidity in lb_H₂O lb_Air⁻¹ [IP] or kg_H₂O kg_Air⁻¹ [SI]
+#' @param specific_hum Specific humidity in lb_H₂O lb_Air⁻¹ [IP] or kg_H₂O kg_Air⁻¹ [SI]
 #'
-#' @return numeric Humidity ratio in lb_H₂O lb_Dry_Air⁻¹ [IP] or kg_H₂O kg_Dry_Air⁻¹ [SI]
+#' @return Humidity ratio in lb_H₂O lb_Dry_Air⁻¹ [IP] or kg_H₂O kg_Dry_Air⁻¹ [SI]
 #'
-#' Reference:
+#' @section Reference:
 #'   ASHRAE Handbook - Fundamentals (2017) ch. 1 eqn 9b (solved for humidity ratio)
 get_hum_ratio_from_specific_hum <- function(specific_hum) {
   if (specific_hum <0 || specific_hum >= 1.0) {
