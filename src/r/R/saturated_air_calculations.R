@@ -4,11 +4,11 @@
 
 #' Return saturation vapor pressure given dry-bulb temperature.
 #'
-#' @param t_dry_bulb numeric Dry-bulb temperature in °F [IP] or °C [SI]
+#' @param t_dry_bulb Dry-bulb temperature in °F [IP] or °C [SI]
 #'
-#' @return numeric Vapor pressure of saturated air in Psi [IP] or Pa [SI]
+#' @return Vapor pressure of saturated air in Psi [IP] or Pa [SI]
 #'
-#' Reference:
+#' @section Reference:
 #'   ASHRAE Handbook - Fundamentals (2017) ch. 1  eqn 5 & 6
 #' @export
 get_sat_vap_pres <- function(t_dry_bulb) {
@@ -49,12 +49,12 @@ get_sat_vap_pres <- function(t_dry_bulb) {
 
 #' Return humidity ratio of saturated air given dry-bulb temperature and pressure.
 #'
-#' @param t_dry_bulb numeric Dry-bulb temperature in °F [IP] or °C [SI]
-#' @param pressure numeric Atmospheric pressure in Psi [IP] or Pa [SI]
+#' @param t_dry_bulb Dry-bulb temperature in °F [IP] or °C [SI]
+#' @param pressure Atmospheric pressure in Psi [IP] or Pa [SI]
 #'
-#' @return numeric Humidity ratio of saturated air in lb_H₂O lb_Air⁻¹ [IP] or kg_H₂O kg_Air⁻¹ [SI]
+#' @return Humidity ratio of saturated air in lb_H₂O lb_Air⁻¹ [IP] or kg_H₂O kg_Air⁻¹ [SI]
 #'
-#' Reference:
+#' @section Reference:
 #'  ASHRAE Handbook - Fundamentals (2017) ch. 1 eqn 36, solved for W
 #' @export
 get_sat_hum_ratio <- function(t_dry_bulb, pressure) {
@@ -73,12 +73,12 @@ get_sat_hum_ratio <- function(t_dry_bulb, pressure) {
 
 #' Return saturated air enthalpy given dry-bulb temperature and pressure.
 #'
-#' @param t_dry_bulb numeric Dry-bulb temperature in °F [IP] or °C [SI]
-#' @param pressure numeric Atmospheric pressure in Psi [IP] or Pa [SI]
+#' @param t_dry_bulb Dry-bulb temperature in °F [IP] or °C [SI]
+#' @param pressure Atmospheric pressure in Psi [IP] or Pa [SI]
 #'
-#' @return numeric Saturated air enthalpy in Btu lb⁻¹ [IP] or J kg⁻¹ [SI]
+#' @return Saturated air enthalpy in Btu lb⁻¹ [IP] or J kg⁻¹ [SI]
 #'
-#' Reference:
+#' @section Reference:
 #'  ASHRAE Handbook - Fundamentals (2017) ch. 1
 #' @export
 get_sat_air_enthalpy <- function(t_dry_bulb, pressure) {

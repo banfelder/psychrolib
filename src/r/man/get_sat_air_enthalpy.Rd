@@ -7,16 +7,18 @@
 get_sat_air_enthalpy(t_dry_bulb, pressure)
 }
 \arguments{
-\item{t_dry_bulb}{numeric Dry-bulb temperature in °F [IP] or °C [SI]}
+\item{t_dry_bulb}{Dry-bulb temperature in °F [IP] or °C [SI]}
 
-\item{pressure}{numeric Atmospheric pressure in Psi [IP] or Pa [SI]}
+\item{pressure}{Atmospheric pressure in Psi [IP] or Pa [SI]}
 }
 \value{
-numeric Saturated air enthalpy in Btu lb⁻¹ [IP] or J kg⁻¹ [SI]
-
-Reference:
- ASHRAE Handbook - Fundamentals (2017) ch. 1
+Saturated air enthalpy in Btu lb⁻¹ [IP] or J kg⁻¹ [SI]
 }
 \description{
 Return saturated air enthalpy given dry-bulb temperature and pressure.
 }
+\section{Reference}{
+
+ ASHRAE Handbook - Fundamentals (2017) ch. 1
+}
+

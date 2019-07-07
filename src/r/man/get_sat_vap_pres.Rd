@@ -7,14 +7,16 @@
 get_sat_vap_pres(t_dry_bulb)
 }
 \arguments{
-\item{t_dry_bulb}{numeric Dry-bulb temperature in °F [IP] or °C [SI]}
+\item{t_dry_bulb}{Dry-bulb temperature in °F [IP] or °C [SI]}
 }
 \value{
-numeric Vapor pressure of saturated air in Psi [IP] or Pa [SI]
-
-Reference:
-  ASHRAE Handbook - Fundamentals (2017) ch. 1  eqn 5 & 6
+Vapor pressure of saturated air in Psi [IP] or Pa [SI]
 }
 \description{
 Return saturation vapor pressure given dry-bulb temperature.
 }
+\section{Reference}{
+
+  ASHRAE Handbook - Fundamentals (2017) ch. 1  eqn 5 & 6
+}
+

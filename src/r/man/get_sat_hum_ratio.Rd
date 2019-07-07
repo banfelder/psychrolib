@@ -7,16 +7,18 @@
 get_sat_hum_ratio(t_dry_bulb, pressure)
 }
 \arguments{
-\item{t_dry_bulb}{numeric Dry-bulb temperature in °F [IP] or °C [SI]}
+\item{t_dry_bulb}{Dry-bulb temperature in °F [IP] or °C [SI]}
 
-\item{pressure}{numeric Atmospheric pressure in Psi [IP] or Pa [SI]}
+\item{pressure}{Atmospheric pressure in Psi [IP] or Pa [SI]}
 }
 \value{
-numeric Humidity ratio of saturated air in lb_H₂O lb_Air⁻¹ [IP] or kg_H₂O kg_Air⁻¹ [SI]
-
-Reference:
- ASHRAE Handbook - Fundamentals (2017) ch. 1 eqn 36, solved for W
+Humidity ratio of saturated air in lb_H₂O lb_Air⁻¹ [IP] or kg_H₂O kg_Air⁻¹ [SI]
 }
 \description{
 Return humidity ratio of saturated air given dry-bulb temperature and pressure.
 }
+\section{Reference}{
+
+ ASHRAE Handbook - Fundamentals (2017) ch. 1 eqn 36, solved for W
+}
+
