@@ -8,16 +8,18 @@
 get_t_dew_point_from_rel_hum(t_dry_bulb, rel_hum)
 }
 \arguments{
-\item{t_dry_bulb}{numeric Dry-bulb temperature in °F [IP] or °C [SI]}
+\item{t_dry_bulb}{Dry-bulb temperature in °F [IP] or °C [SI]}
 
-\item{rel_hum}{numeric Relative humidity in range [0, 1]}
+\item{rel_hum}{Relative humidity in range [0, 1]}
 }
 \value{
-numeric Dew-point temperature in °F [IP] or °C [SI]
-
-Reference:
-  ASHRAE Handbook - Fundamentals (2017) ch. 1
+Dew-point temperature in °F [IP] or °C [SI]
 }
 \description{
 Return dew-point temperature given dry-bulb temperature and relative humidity.
 }
+\section{Reference}{
+
+  ASHRAE Handbook - Fundamentals (2017) ch. 1
+}
+

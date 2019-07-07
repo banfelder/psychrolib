@@ -8,18 +8,20 @@
 get_t_wet_bulb_from_t_dew_point(t_dry_bulb, t_dew_point, pressure)
 }
 \arguments{
-\item{t_dry_bulb}{numeric Dry-bulb temperature in °F [IP] or °C [SI]}
+\item{t_dry_bulb}{Dry-bulb temperature in °F [IP] or °C [SI]}
 
-\item{t_dew_point}{numeric Dew-point temperature in °F [IP] or °C [SI]}
+\item{t_dew_point}{Dew-point temperature in °F [IP] or °C [SI]}
 
-\item{pressure}{numeric Atmospheric pressure in Psi [IP] or Pa [SI]}
+\item{pressure}{Atmospheric pressure in Psi [IP] or Pa [SI]}
 }
 \value{
-numeric Wet-bulb temperature in °F [IP] or °C [SI]
-
-Reference:
-  ASHRAE Handbook - Fundamentals (2017) ch. 1
+Wet-bulb temperature in °F [IP] or °C [SI]
 }
 \description{
 Return wet-bulb temperature given dry-bulb temperature, dew-point temperature, and pressure.
 }
+\section{Reference}{
+
+  ASHRAE Handbook - Fundamentals (2017) ch. 1
+}
+

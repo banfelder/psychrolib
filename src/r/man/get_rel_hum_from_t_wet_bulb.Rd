@@ -8,18 +8,20 @@
 get_rel_hum_from_t_wet_bulb(t_dry_bulb, t_wet_bulb, pressure)
 }
 \arguments{
-\item{t_dry_bulb}{numeric Dry-bulb temperature in °F [IP] or °C [SI]}
+\item{t_dry_bulb}{Dry-bulb temperature in °F [IP] or °C [SI]}
 
-\item{t_wet_bulb}{numeric Wet-bulb temperature in °F [IP] or °C [SI]}
+\item{t_wet_bulb}{Wet-bulb temperature in °F [IP] or °C [SI]}
 
-\item{pressure}{numeric Atmospheric pressure in Psi [IP] or Pa [SI]}
+\item{pressure}{Atmospheric pressure in Psi [IP] or Pa [SI]}
 }
 \value{
-numeric Relative humidity in range [0, 1]
-
-Reference:
-  ASHRAE Handbook - Fundamentals (2017) ch. 1
+Relative humidity in range [0, 1]
 }
 \description{
 Return relative humidity given dry-bulb temperature, wet bulb temperature and pressure.
 }
+\section{Reference}{
+
+  ASHRAE Handbook - Fundamentals (2017) ch. 1
+}
+
