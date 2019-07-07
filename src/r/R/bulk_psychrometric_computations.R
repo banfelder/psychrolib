@@ -1,26 +1,28 @@
 ######################################################################################################
 # Functions to set all psychrometric values
 #######################################################################################################
+# TODO: consider including the input parameters in output vectors, so you get the complete picture
 
-#' Utility function to calculate humidity ratio, dew-point temperature, relative humidity,
+#' @title Calculate psychrometric values from wet-bulb temperature.
+#'
+#' @description Utility function to calculate humidity ratio, dew-point temperature, relative humidity,
 #'  vapour pressure, moist air enthalpy, moist air volume, and degree of saturation of air given
 #'  dry-bulb temperature, wet-bulb temperature, and pressure.
 #'
-#' @param t_dry_bulb numeric Dry-bulb temperature in °F [IP] or °C [SI]
-#' @param t_wet_bulb numeric Wet-bulb temperature in °F [IP] or °C [SI]
-#' @param pressure numeric Atmospheric pressure in Psi [IP] or Pa [SI]
+#' @param t_dry_bulb Dry-bulb temperature in °F [IP] or °C [SI]
+#' @param t_wet_bulb Wet-bulb temperature in °F [IP] or °C [SI]
+#' @param pressure Atmospheric pressure in Psi [IP] or Pa [SI]
 #'
-#' @return numeric vector with named components for each psychrometric value computed
-#'
-#' Notes:
-#'   Result vector contains:
-#'     hum_ratio: Humidity ratio in lb_H₂O lb_Air⁻¹ [IP] or kg_H₂O kg_Air⁻¹ [SI]
-#'     t_dew_point: Dew-point temperature in °F [IP] or °C [SI]
-#'     rel_hum: Relative humidity in range [0, 1]
-#'     vap_pres: Partial pressure of water vapor in moist air in Psi [IP] or Pa [SI]
-#'     moist_air_enthalpy: Moist air enthalpy in Btu lb⁻¹ [IP] or J kg⁻¹ [SI]
-#'     moist_air_volume: Specific volume of moist air in ft³ lb⁻¹ [IP] or in m³ kg⁻¹ [SI]
-#'     degree_of_saturation: Degree of saturation [unitless]
+#' @return Vector with named components for each psychrometric value computed:
+#'   \describe{
+#'     \item{hum_ratio}{Humidity ratio in lb_H₂O lb_Air⁻¹ [IP] or kg_H₂O kg_Air⁻¹ [SI]}
+#'     \item{t_dew_point}{Dew-point temperature in °F [IP] or °C [SI]}
+#'     \item{rel_hum}{Relative humidity in range [0, 1]}
+#'     \item{vap_pres}{Partial pressure of water vapor in moist air in Psi [IP] or Pa [SI]}
+#'     \item{moist_air_enthalpy}{Moist air enthalpy in Btu lb⁻¹ [IP] or J kg⁻¹ [SI]}
+#'     \item{moist_air_volume}{Specific volume of moist air in ft³ lb⁻¹ [IP] or in m³ kg⁻¹ [SI]}
+#'     \item{degree_of_saturation}{Degree of saturation [unitless]}
+#'   }
 #' @export
 calc_psychrometrics_from_t_wet_bulb <- function(t_dry_bulb, t_wet_bulb, pressure) {
 
@@ -37,25 +39,26 @@ calc_psychrometrics_from_t_wet_bulb <- function(t_dry_bulb, t_wet_bulb, pressure
     degree_of_saturation = degree_of_saturation)
 }
 
-#' Utility function to calculate humidity ratio, wet-bulb temperature, relative humidity,
+#' @title Calculate psychrometric values from dew-point temperature.
+#'
+#' @description Utility function to calculate humidity ratio, wet-bulb temperature, relative humidity,
 #'  vapour pressure, moist air enthalpy, moist air volume, and degree of saturation of air given
 #'  dry-bulb temperature, dew-point temperature, and pressure.
 #'
-#' Args:
-#' @param t_dry_bulb numeric Dry-bulb temperature in °F [IP] or °C [SI]
-#' @param t_dew_point numeric Dew-point temperature in °F [IP] or °C [SI]
-#' @param pressure numeric Atmospheric pressure in Psi [IP] or Pa [SI]
+#' @param t_dry_bulb Dry-bulb temperature in °F [IP] or °C [SI]
+#' @param t_dew_point Dew-point temperature in °F [IP] or °C [SI]
+#' @param pressure Atmospheric pressure in Psi [IP] or Pa [SI]
 #'
-#' @return numeric vector with named components for each psychrometric value computed
-#' Notes:
-#'   Result vector contains:
-#'     hum_ratio: Humidity ratio in lb_H₂O lb_Air⁻¹ [IP] or kg_H₂O kg_Air⁻¹ [SI]
-#'     t_wet_bulb: Wet-bulb temperature in °F [IP] or °C [SI]
-#'     rel_hum: Relative humidity in range [0, 1]
-#'     vap_pres: Partial pressure of water vapor in moist air in Psi [IP] or Pa [SI]
-#'     moist_air_enthalpy: Moist air enthalpy in Btu lb⁻¹ [IP] or J kg⁻¹ [SI]
-#'     moist_air_volume: Specific volume of moist air in ft³ lb⁻¹ [IP] or in m³ kg⁻¹ [SI]
-#'     degree_of_saturation: Degree of saturation [unitless]
+#' @return Vector with named components for each psychrometric value computed:
+#'   \describe{
+#'     \item{hum_ratio}{Humidity ratio in lb_H₂O lb_Air⁻¹ [IP] or kg_H₂O kg_Air⁻¹ [SI]}
+#'     \item{t_wet_bulb}{Wet-bulb temperature in °F [IP] or °C [SI]}
+#'     \item{rel_hum}{Relative humidity in range [0, 1]}
+#'     \item{vap_pres}{Partial pressure of water vapor in moist air in Psi [IP] or Pa [SI]}
+#'     \item{moist_air_enthalpy}{Moist air enthalpy in Btu lb⁻¹ [IP] or J kg⁻¹ [SI]}
+#'     \item{moist_air_volume}{Specific volume of moist air in ft³ lb⁻¹ [IP] or in m³ kg⁻¹ [SI]}
+#'     \item{degree_of_saturation}{Degree of saturation [unitless]}
+#'   }
 #' @export
 calc_psychrometrics_from_t_dew_point <- function(t_dry_bulb, t_dew_point, pressure) {
 
@@ -72,24 +75,26 @@ calc_psychrometrics_from_t_dew_point <- function(t_dry_bulb, t_dew_point, pressu
     degree_of_saturation = degree_of_saturation)
 }
 
-#' Utility function to calculate humidity ratio, wet-bulb temperature, dew-point temperature,
+#' @title Calculate psychrometric values from relative humidity.
+#'
+#' @description Utility function to calculate humidity ratio, wet-bulb temperature, dew-point temperature,
 #'  vapour pressure, moist air enthalpy, moist air volume, and degree of saturation of air given
 #'  dry-bulb temperature, relative humidity and pressure.
 #'
-#' @param t_dry_bulb numeric Dry-bulb temperature in °F [IP] or °C [SI]
-#' @param rel_hum numeric Relative humidity in range [0, 1]
-#' @param pressure numeric Atmospheric pressure in Psi [IP] or Pa [SI]
+#' @param t_dry_bulb Dry-bulb temperature in °F [IP] or °C [SI]
+#' @param rel_hum Relative humidity in range [0, 1]
+#' @param pressure Atmospheric pressure in Psi [IP] or Pa [SI]
 #'
-#' @return numeric vector with named components for each psychrometric value computed
-#' Notes:
-#'   Result vector contains:
-#'     hum_ratio: Humidity ratio in lb_H₂O lb_Air⁻¹ [IP] or kg_H₂O kg_Air⁻¹ [SI]
-#'     t_wet_bulb: Wet-bulb temperature in °F [IP] or °C [SI]
-#'     t_dew_point: Dew-point temperature in °F [IP] or °C [SI]
-#'     vap_pres: Partial pressure of water vapor in moist air in Psi [IP] or Pa [SI]
-#'     moist_air_enthalpy: Moist air enthalpy in Btu lb⁻¹ [IP] or J kg⁻¹ [SI]
-#'     moist_air_volume: Specific volume of moist air in ft³ lb⁻¹ [IP] or in m³ kg⁻¹ [SI]
-#'     degree_of_saturation: Degree of saturation [unitless]
+#' @return Vector with named components for each psychrometric value computed:
+#'   \describe{
+#'     \item{hum_ratio}{Humidity ratio in lb_H₂O lb_Air⁻¹ [IP] or kg_H₂O kg_Air⁻¹ [SI]}
+#'     \item{t_wet_bulb}{Wet-bulb temperature in °F [IP] or °C [SI]}
+#'     \item{t_dew_point}{Dew-point temperature in °F [IP] or °C [SI]}
+#'     \item{vap_pres}{Partial pressure of water vapor in moist air in Psi [IP] or Pa [SI]}
+#'     \item{moist_air_enthalpy}{Moist air enthalpy in Btu lb⁻¹ [IP] or J kg⁻¹ [SI]}
+#'     \item{moist_air_volume}{Specific volume of moist air in ft³ lb⁻¹ [IP] or in m³ kg⁻¹ [SI]}
+#'     \item{degree_of_saturation}{Degree of saturation [unitless]}
+#'   }
 #' @export
 calc_psychrometrics_from_rel_hum <- function(t_dry_bulb, rel_hum, pressure) {
 

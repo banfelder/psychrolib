@@ -2,31 +2,31 @@
 % Please edit documentation in R/bulk_psychrometric_computations.R
 \name{calc_psychrometrics_from_t_dew_point}
 \alias{calc_psychrometrics_from_t_dew_point}
-\title{Utility function to calculate humidity ratio, wet-bulb temperature, relative humidity,
- vapour pressure, moist air enthalpy, moist air volume, and degree of saturation of air given
- dry-bulb temperature, dew-point temperature, and pressure.}
+\title{Calculate psychrometric values from dew-point temperature.}
 \usage{
 calc_psychrometrics_from_t_dew_point(t_dry_bulb, t_dew_point, pressure)
 }
 \arguments{
-\item{t_dry_bulb}{numeric Dry-bulb temperature in °F [IP] or °C [SI]}
+\item{t_dry_bulb}{Dry-bulb temperature in °F [IP] or °C [SI]}
 
-\item{t_dew_point}{numeric Dew-point temperature in °F [IP] or °C [SI]}
+\item{t_dew_point}{Dew-point temperature in °F [IP] or °C [SI]}
 
-\item{pressure}{numeric Atmospheric pressure in Psi [IP] or Pa [SI]}
+\item{pressure}{Atmospheric pressure in Psi [IP] or Pa [SI]}
 }
 \value{
-numeric vector with named components for each psychrometric value computed
-Notes:
-  Result vector contains:
-    hum_ratio: Humidity ratio in lb_H₂O lb_Air⁻¹ [IP] or kg_H₂O kg_Air⁻¹ [SI]
-    t_wet_bulb: Wet-bulb temperature in °F [IP] or °C [SI]
-    rel_hum: Relative humidity in range [0, 1]
-    vap_pres: Partial pressure of water vapor in moist air in Psi [IP] or Pa [SI]
-    moist_air_enthalpy: Moist air enthalpy in Btu lb⁻¹ [IP] or J kg⁻¹ [SI]
-    moist_air_volume: Specific volume of moist air in ft³ lb⁻¹ [IP] or in m³ kg⁻¹ [SI]
-    degree_of_saturation: Degree of saturation [unitless]
+Vector with named components for each psychrometric value computed:
+  \describe{
+    \item{hum_ratio}{Humidity ratio in lb_H₂O lb_Air⁻¹ [IP] or kg_H₂O kg_Air⁻¹ [SI]}
+    \item{t_wet_bulb}{Wet-bulb temperature in °F [IP] or °C [SI]}
+    \item{rel_hum}{Relative humidity in range [0, 1]}
+    \item{vap_pres}{Partial pressure of water vapor in moist air in Psi [IP] or Pa [SI]}
+    \item{moist_air_enthalpy}{Moist air enthalpy in Btu lb⁻¹ [IP] or J kg⁻¹ [SI]}
+    \item{moist_air_volume}{Specific volume of moist air in ft³ lb⁻¹ [IP] or in m³ kg⁻¹ [SI]}
+    \item{degree_of_saturation}{Degree of saturation [unitless]}
+  }
 }
 \description{
-Args:
+Utility function to calculate humidity ratio, wet-bulb temperature, relative humidity,
+ vapour pressure, moist air enthalpy, moist air volume, and degree of saturation of air given
+ dry-bulb temperature, dew-point temperature, and pressure.
 }
