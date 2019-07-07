@@ -128,12 +128,3 @@ get_t_dew_point_from_t_wet_bulb <- function(t_dry_bulb, t_wet_bulb, pressure) {
   hum_ratio <- get_hum_ratio_from_t_wet_bulb(t_dry_bulb, t_wet_bulb, pressure)
   get_t_dew_point_from_hum_ratio(t_dry_bulb, hum_ratio, pressure)
 }
-
-# def GetTDewPointFromTWetBulb(TDryBulb: float, TWetBulb: float, Pressure: float) -> float:
-#
-# if TWetBulb > TDryBulb:
-#   raise ValueError("Wet bulb temperature is above dry bulb temperature")
-#
-# HumRatio = GetHumRatioFromTWetBulb(TDryBulb, TWetBulb, Pressure)
-# TDewPoint = GetTDewPointFromHumRatio(TDryBulb, HumRatio, Pressure)
-# return TDewPoint
