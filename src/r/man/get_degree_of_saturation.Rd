@@ -8,22 +8,22 @@ at the same temperature and pressure) given dry-bulb temperature, humidity ratio
 get_degree_of_saturation(t_dry_bulb, hum_ratio, pressure)
 }
 \arguments{
-\item{t_dry_bulb}{numeric Dry-bulb temperature in °F [IP] or °C [SI]}
+\item{t_dry_bulb}{Dry-bulb temperature in °F [IP] or °C [SI]}
 
-\item{hum_ratio}{numeric Humidity ratio in lb_H₂O lb_Air⁻¹ [IP] or kg_H₂O kg_Air⁻¹ [SI]}
+\item{hum_ratio}{Humidity ratio in lb_H₂O lb_Air⁻¹ [IP] or kg_H₂O kg_Air⁻¹ [SI]}
 
-\item{pressure}{numeric Atmospheric pressure in Psi [IP] or Pa [SI]}
+\item{pressure}{Atmospheric pressure in Psi [IP] or Pa [SI]}
 }
 \value{
-numeric Degree of saturation in arbitrary unit
-
-Reference:
-  ASHRAE Handbook - Fundamentals (2009) ch. 1 eqn 12
-
-Notes:
-  This definition is absent from the 2017 Handbook. Using 2009 version instead.
+Degree of saturation in arbitrary unit
 }
 \description{
 Return the degree of saturation (i.e humidity ratio of the air / humidity ratio of the air at saturation
 at the same temperature and pressure) given dry-bulb temperature, humidity ratio, and atmospheric pressure.
 }
+\section{Reference}{
+
+  ASHRAE Handbook - Fundamentals (2009) ch. 1 eqn 12
+  (this definition is absent from the 2017 Handbook)
+}
+

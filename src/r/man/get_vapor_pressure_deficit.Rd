@@ -7,18 +7,20 @@
 get_vapor_pressure_deficit(t_dry_bulb, hum_ratio, pressure)
 }
 \arguments{
-\item{t_dry_bulb}{numeric Dry-bulb temperature in °F [IP] or °C [SI]}
+\item{t_dry_bulb}{Dry-bulb temperature in °F [IP] or °C [SI]}
 
-\item{hum_ratio}{numeric Humidity ratio in lb_H₂O lb_Air⁻¹ [IP] or kg_H₂O kg_Air⁻¹ [SI]}
+\item{hum_ratio}{Humidity ratio in lb_H₂O lb_Air⁻¹ [IP] or kg_H₂O kg_Air⁻¹ [SI]}
 
-\item{pressure}{numeric Atmospheric pressure in Psi [IP] or Pa [SI]}
+\item{pressure}{Atmospheric pressure in Psi [IP] or Pa [SI]}
 }
 \value{
-numeric Vapor pressure deficit in Psi [IP] or Pa [SI]
-
-Reference:
-  Oke (1987) eqn 2.13a
+Vapor pressure deficit in Psi [IP] or Pa [SI]
 }
 \description{
 Return Vapor pressure deficit given dry-bulb temperature, humidity ratio, and pressure.
 }
+\section{Reference}{
+
+  Oke (1987) eqn 2.13a
+}
+
