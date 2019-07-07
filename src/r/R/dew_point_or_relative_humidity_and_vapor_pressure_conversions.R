@@ -4,12 +4,12 @@
 
 #' Return partial pressure of water vapor as a function of relative humidity and temperature.
 #'
-#' @param t_dry_bulb numeric Dry-bulb temperature in °F [IP] or °C [SI]
-#' @param rel_hum numeric Relative humidity in range [0, 1]
+#' @param t_dry_bulb Dry-bulb temperature in °F [IP] or °C [SI]
+#' @param rel_hum Relative humidity in range [0, 1]
 #'
-#' @return numeric Partial pressure of water vapor in moist air in Psi [IP] or Pa [SI]
+#' @return Partial pressure of water vapor in moist air in Psi [IP] or Pa [SI]
 #'
-#' Reference:
+#' @section Reference:
 #'   ASHRAE Handbook - Fundamentals (2017) ch. 1 eqn 12, 22
 #' @export
 get_vap_pres_from_rel_hum <- function(t_dry_bulb, rel_hum) {
@@ -23,12 +23,12 @@ get_vap_pres_from_rel_hum <- function(t_dry_bulb, rel_hum) {
 
 #' Return relative humidity given dry-bulb temperature and vapor pressure.
 #'
-#' @param t_dry_bulb numeric Dry-bulb temperature in °F [IP] or °C [SI]
-#' @param vap_pres numeric Partial pressure of water vapor in moist air in Psi [IP] or Pa [SI]
+#' @param t_dry_bulb Dry-bulb temperature in °F [IP] or °C [SI]
+#' @param vap_pres Partial pressure of water vapor in moist air in Psi [IP] or Pa [SI]
 #'
-#' @return numeric Relative humidity in range [0, 1]
+#' @return Relative humidity in range [0, 1]
 #'
-#' Reference:
+#' @section Reference:
 #'   ASHRAE Handbook - Fundamentals (2017) ch. 1 eqn 12, 22
 #' @export
 get_rel_hum_from_vap_pres <- function(t_dry_bulb, vap_pres) {
@@ -41,12 +41,14 @@ get_rel_hum_from_vap_pres <- function(t_dry_bulb, vap_pres) {
 # Helper function returning the derivative of the natural log of the saturation vapor pressure
 #  as a function of dry-bulb temperature.
 #
-# @param t_dry_bulb numeric Dry-bulb temperature in °F [IP] or °C [SI]
+# @param t_dry_bulb Dry-bulb temperature in °F [IP] or °C [SI]
 #
-# @return numeric Derivative of natural log of vapor pressure of saturated air in Psi [IP] or Pa [SI]
+# @return Derivative of natural log of vapor pressure of saturated air in Psi [IP] or Pa [SI]
 #
-# Reference:
+# @section Reference:
 #   ASHRAE Handbook - Fundamentals (2017) ch. 1  eqn 5 & 6
+#
+# Intentionally not exported
 d_ln_pws <- function(t_dry_bulb) {
 
   if (is_ip()) {
@@ -73,23 +75,25 @@ d_ln_pws <- function(t_dry_bulb) {
 
 #' Return dew-point temperature given dry-bulb temperature and vapor pressure.
 #'
-#' @param t_dry_bulb numeric Dry-bulb temperature in °F [IP] or °C [SI]
-#' @param vap_pres numeric Partial pressure of water vapor in moist air in Psi [IP] or Pa [SI]
+#' @param t_dry_bulb Dry-bulb temperature in °F [IP] or °C [SI]
+#' @param vap_pres Partial pressure of water vapor in moist air in Psi [IP] or Pa [SI]
 #'
-#' @return numeric Dew-point temperature in °F [IP] or °C [SI]
+#' @return Dew-point temperature in °F [IP] or °C [SI]
 #'
-#' Reference:
+#' @section Reference:
 #'   ASHRAE Handbook - Fundamentals (2017) ch. 1 eqn. 5 and 6
 #'
-#' Notes:
-#'  The dew point temperature is solved by inverting the equation giving water vapor pressure
+#' @section Notes:
+#' \itemize{
+#'  \item The dew point temperature is solved by inverting the equation giving water vapor pressure
 #'  at saturation from temperature rather than using the regressions provided
-#'  by ASHRAE (eqn. 37 and 38) which are much less accurate and have a
+#'  by ASHRAE (eqn. 37 and 38), which are much less accurate and have a
 #'  narrower range of validity.
-#'  The Newton-Raphson (NR) method is used on the logarithm of water vapour
-#'  pressure as a function of temperature, which is a very smooth function
-#'  Convergence is usually achieved in 3 to 5 iterations.
-#'  TDryBulb is not really needed here, just used for convenience.
+#'  \item The Newton-Raphson (NR) method is used on the logarithm of water vapour
+#'  pressure as a function of temperature, which is a very smooth function.
+#'  \item Convergence is usually achieved in 3 to 5 iterations.
+#'  \item t_dry_bulb is not really needed here, just used for convenience.
+#' }
 #' @export
 get_t_dew_point_from_vap_pres <- function(t_dry_bulb, vap_pres) {
 
@@ -159,11 +163,11 @@ get_t_dew_point_from_vap_pres <- function(t_dry_bulb, vap_pres) {
 
 #' Return vapor pressure given dew point temperature.
 #'
-#' @param t_dew_point numeric Dew-point temperature in °F [IP] or °C [SI]
+#' @param t_dew_point Dew-point temperature in °F [IP] or °C [SI]
 #'
-#' @return numeric Partial pressure of water vapor in moist air in Psi [IP] or Pa [SI]
+#' @return Partial pressure of water vapor in moist air in Psi [IP] or Pa [SI]
 #'
-#' Reference:
+#' @section Reference:
 #'   ASHRAE Handbook - Fundamentals (2017) ch. 1 eqn 36
 #' @export
 get_vap_pres_from_t_dew_point <- function(t_dew_point) {

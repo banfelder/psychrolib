@@ -8,16 +8,18 @@
 get_vap_pres_from_rel_hum(t_dry_bulb, rel_hum)
 }
 \arguments{
-\item{t_dry_bulb}{numeric Dry-bulb temperature in °F [IP] or °C [SI]}
+\item{t_dry_bulb}{Dry-bulb temperature in °F [IP] or °C [SI]}
 
-\item{rel_hum}{numeric Relative humidity in range [0, 1]}
+\item{rel_hum}{Relative humidity in range [0, 1]}
 }
 \value{
-numeric Partial pressure of water vapor in moist air in Psi [IP] or Pa [SI]
-
-Reference:
-  ASHRAE Handbook - Fundamentals (2017) ch. 1 eqn 12, 22
+Partial pressure of water vapor in moist air in Psi [IP] or Pa [SI]
 }
 \description{
 Return partial pressure of water vapor as a function of relative humidity and temperature.
 }
+\section{Reference}{
+
+  ASHRAE Handbook - Fundamentals (2017) ch. 1 eqn 12, 22
+}
+

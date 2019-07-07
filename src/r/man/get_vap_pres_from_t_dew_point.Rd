@@ -8,14 +8,16 @@
 get_vap_pres_from_t_dew_point(t_dew_point)
 }
 \arguments{
-\item{t_dew_point}{numeric Dew-point temperature in °F [IP] or °C [SI]}
+\item{t_dew_point}{Dew-point temperature in °F [IP] or °C [SI]}
 }
 \value{
-numeric Partial pressure of water vapor in moist air in Psi [IP] or Pa [SI]
-
-Reference:
-  ASHRAE Handbook - Fundamentals (2017) ch. 1 eqn 36
+Partial pressure of water vapor in moist air in Psi [IP] or Pa [SI]
 }
 \description{
 Return vapor pressure given dew point temperature.
 }
+\section{Reference}{
+
+  ASHRAE Handbook - Fundamentals (2017) ch. 1 eqn 36
+}
+

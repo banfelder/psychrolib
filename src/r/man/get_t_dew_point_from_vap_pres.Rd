@@ -8,26 +8,32 @@
 get_t_dew_point_from_vap_pres(t_dry_bulb, vap_pres)
 }
 \arguments{
-\item{t_dry_bulb}{numeric Dry-bulb temperature in °F [IP] or °C [SI]}
+\item{t_dry_bulb}{Dry-bulb temperature in °F [IP] or °C [SI]}
 
-\item{vap_pres}{numeric Partial pressure of water vapor in moist air in Psi [IP] or Pa [SI]}
+\item{vap_pres}{Partial pressure of water vapor in moist air in Psi [IP] or Pa [SI]}
 }
 \value{
-numeric Dew-point temperature in °F [IP] or °C [SI]
-
-Reference:
-  ASHRAE Handbook - Fundamentals (2017) ch. 1 eqn. 5 and 6
-
-Notes:
- The dew point temperature is solved by inverting the equation giving water vapor pressure
- at saturation from temperature rather than using the regressions provided
- by ASHRAE (eqn. 37 and 38) which are much less accurate and have a
- narrower range of validity.
- The Newton-Raphson (NR) method is used on the logarithm of water vapour
- pressure as a function of temperature, which is a very smooth function
- Convergence is usually achieved in 3 to 5 iterations.
- TDryBulb is not really needed here, just used for convenience.
+Dew-point temperature in °F [IP] or °C [SI]
 }
 \description{
 Return dew-point temperature given dry-bulb temperature and vapor pressure.
 }
+\section{Reference}{
+
+  ASHRAE Handbook - Fundamentals (2017) ch. 1 eqn. 5 and 6
+}
+
+\section{Notes}{
+
+\itemize{
+ \item The dew point temperature is solved by inverting the equation giving water vapor pressure
+ at saturation from temperature rather than using the regressions provided
+ by ASHRAE (eqn. 37 and 38), which are much less accurate and have a
+ narrower range of validity.
+ \item The Newton-Raphson (NR) method is used on the logarithm of water vapour
+ pressure as a function of temperature, which is a very smooth function.
+ \item Convergence is usually achieved in 3 to 5 iterations.
+ \item t_dry_bulb is not really needed here, just used for convenience.
+}
+}
+
