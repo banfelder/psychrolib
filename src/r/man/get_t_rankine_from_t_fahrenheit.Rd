@@ -8,15 +8,17 @@ given temperature in degree Fahrenheit (°F).}
 get_t_rankine_from_t_fahrenheit(t_fahrenheit)
 }
 \arguments{
-\item{t_fahrenheit}{numeric Temperature in degree Fahrenheit (°F)}
+\item{t_fahrenheit}{Temperature in degree Fahrenheit (°F)}
 }
 \value{
-numeric Temperature in degree Rankine (°R)
-
-Notes:
-  Exact conversion.
+Temperature in degree Rankine (°R)
 }
 \description{
 Utility function to convert temperature to degree Rankine (°R)
 given temperature in degree Fahrenheit (°F).
 }
+\section{Notes}{
+
+  Exact conversion.
+}
+

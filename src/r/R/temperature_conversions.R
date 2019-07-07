@@ -5,11 +5,11 @@
 #' Utility function to convert temperature to degree Rankine (°R)
 #' given temperature in degree Fahrenheit (°F).
 #'
-#' @param t_fahrenheit numeric Temperature in degree Fahrenheit (°F)
+#' @param t_fahrenheit Temperature in degree Fahrenheit (°F)
 #'
-#' @return numeric Temperature in degree Rankine (°R)
+#' @return Temperature in degree Rankine (°R)
 #'
-#' Notes:
+#' @section Notes:
 #'   Exact conversion.
 #'
 #' @export
@@ -24,11 +24,11 @@ get_t_rankine_from_t_fahrenheit <- function(t_fahrenheit) {
 #' Utility function to convert temperature to Kelvin (K)
 #' given temperature in degree Celsius (°C).
 #'
-#' @param t_celsius numeric Temperature in degree Celsius (°C)
+#' @param t_celsius Temperature in degree Celsius (°C)
 #'
-#' @return numeric Temperature in Kelvin (K)
+#' @return Temperature in Kelvin (K)
 #'
-#' Notes:
+#' @section Notes:
 #'   Exact conversion.
 #'
 #' @export

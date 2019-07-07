@@ -8,15 +8,17 @@ given temperature in degree Celsius (°C).}
 get_t_kelvin_from_t_celsius(t_celsius)
 }
 \arguments{
-\item{t_celsius}{numeric Temperature in degree Celsius (°C)}
+\item{t_celsius}{Temperature in degree Celsius (°C)}
 }
 \value{
-numeric Temperature in Kelvin (K)
-
-Notes:
-  Exact conversion.
+Temperature in Kelvin (K)
 }
 \description{
 Utility function to convert temperature to Kelvin (K)
 given temperature in degree Celsius (°C).
 }
+\section{Notes}{
+
+  Exact conversion.
+}
+
