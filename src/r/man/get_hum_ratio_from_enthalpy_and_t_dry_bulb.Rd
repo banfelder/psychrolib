@@ -7,19 +7,18 @@
 get_hum_ratio_from_enthalpy_and_t_dry_bulb(moist_air_enthalpy, t_dry_bulb)
 }
 \arguments{
-\item{moist_air_enthalpy}{numeric Moist air enthalpy in Btu lb⁻¹ [IP] or J kg⁻¹}
+\item{moist_air_enthalpy}{Moist air enthalpy in Btu lb⁻¹ [IP] or J kg⁻¹}
 
-\item{t_dry_bulb}{numeric Dry-bulb temperature in °F [IP] or °C [SI]}
+\item{t_dry_bulb}{Dry-bulb temperature in °F [IP] or °C [SI]}
 }
 \value{
-numeric Humidity ratio in lb_H₂O lb_Air⁻¹ [IP] or kg_H₂O kg_Air⁻¹ [SI]
-
-Reference:
-  ASHRAE Handbook - Fundamentals (2017) ch. 1 eqn 30.
-
-Notes:
-  Based on the `GetMoistAirEnthalpy` function, rearranged for humidity ratio.
+Humidity ratio in lb_H₂O lb_Air⁻¹ [IP] or kg_H₂O kg_Air⁻¹ [SI]
 }
 \description{
 Return humidity ratio from enthalpy and dry-bulb temperature.
 }
+\section{Reference}{
+
+  ASHRAE Handbook - Fundamentals (2017) ch. 1 eqn 30.
+}
+

@@ -7,21 +7,22 @@
 get_dry_air_volume(t_dry_bulb, pressure)
 }
 \arguments{
-\item{t_dry_bulb}{numeric Dry-bulb temperature in °F [IP] or °C [SI]}
+\item{t_dry_bulb}{Dry-bulb temperature in °F [IP] or °C [SI]}
 
-\item{pressure}{numeric Atmospheric pressure in Psi [IP] or Pa [SI]}
+\item{pressure}{Atmospheric pressure in Psi [IP] or Pa [SI]}
 }
 \value{
-numeric Dry air volume in ft³ lb⁻¹ [IP] or in m³ kg⁻¹ [SI]
-
-Reference:
-  ASHRAE Handbook - Fundamentals (2017) ch. 1
-
-Notes:
-  Eqn 14 for the perfect gas relationship for dry air.
-  Eqn 1 for the universal gas constant.
-  The factor 144 in IP is for the conversion of Psi = lb in⁻² to lb ft⁻².
+Dry air volume in ft³ lb⁻¹ [IP] or in m³ kg⁻¹ [SI]
 }
 \description{
 Return dry-air volume given dry-bulb temperature and pressure.
 }
+\section{Reference}{
+
+  ASHRAE Handbook - Fundamentals (2017) ch. 1
+  \itemize{
+    \item Eqn 14 for the perfect gas relationship for dry air.
+    \item Eqn 1 for the universal gas constant.
+  }
+}
+

@@ -7,14 +7,16 @@
 get_dry_air_enthalpy(t_dry_bulb)
 }
 \arguments{
-\item{t_dry_bulb}{numeric Dry-bulb temperature in °F [IP] or °C [SI]}
+\item{t_dry_bulb}{Dry-bulb temperature in °F [IP] or °C [SI]}
 }
 \value{
-numeric Dry air enthalpy in Btu lb⁻¹ [IP] or J kg⁻¹ [SI]
-
-Reference:
-  ASHRAE Handbook - Fundamentals (2017) ch. 1 eqn 28
+Dry air enthalpy in Btu lb⁻¹ [IP] or J kg⁻¹ [SI]
 }
 \description{
 Return dry-air enthalpy given dry-bulb temperature.
 }
+\section{Reference}{
+
+  ASHRAE Handbook - Fundamentals (2017) ch. 1 eqn 28
+}
+
