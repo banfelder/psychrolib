@@ -4,12 +4,12 @@
 
 #' Return humidity ratio given water vapor pressure and atmospheric pressure.
 #'
-#' @param vap_pres numeric Partial pressure of water vapor in moist air in Psi [IP] or Pa [SI]
-#' @param pressure numeric Atmospheric pressure in Psi [IP] or Pa [SI]
+#' @param vap_pres Partial pressure of water vapor in moist air in Psi [IP] or Pa [SI]
+#' @param pressure Atmospheric pressure in Psi [IP] or Pa [SI]
 #'
-#' @return numeric Humidity ratio in lb_H₂O lb_Air⁻¹ [IP] or kg_H₂O kg_Air⁻¹ [SI]
+#' @return Humidity ratio in lb_H₂O lb_Air⁻¹ [IP] or kg_H₂O kg_Air⁻¹ [SI]
 #'
-#' Reference:
+#' @section Reference:
 #'   ASHRAE Handbook - Fundamentals (2017) ch. 1 eqn 20
 #' @export
 get_hum_ratio_from_vap_pres <- function(vap_pres, pressure) {
@@ -22,12 +22,12 @@ get_hum_ratio_from_vap_pres <- function(vap_pres, pressure) {
 
 #' Return vapor pressure given humidity ratio and pressure.
 #'
-#' @param hum_ratio numeric Humidity ratio in lb_H₂O lb_Air⁻¹ [IP] or kg_H₂O kg_Air⁻¹ [SI]
-#' @param pressure numeric Atmospheric pressure in Psi [IP] or Pa [SI]
+#' @param hum_ratio Humidity ratio in lb_H₂O lb_Air⁻¹ [IP] or kg_H₂O kg_Air⁻¹ [SI]
+#' @param pressure Atmospheric pressure in Psi [IP] or Pa [SI]
 #'
-#' @return numeric Partial pressure of water vapor in moist air in Psi [IP] or Pa [SI]
+#' @return Partial pressure of water vapor in moist air in Psi [IP] or Pa [SI]
 #'
-#' Reference:
+#' @section Reference:
 #'   ASHRAE Handbook - Fundamentals (2017) ch. 1 eqn 20 solved for pw
 #' @export
 get_vap_pres_from_hum_ratio <- function(hum_ratio, pressure) {

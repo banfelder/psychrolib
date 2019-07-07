@@ -7,16 +7,18 @@
 get_vap_pres_from_hum_ratio(hum_ratio, pressure)
 }
 \arguments{
-\item{hum_ratio}{numeric Humidity ratio in lb_H₂O lb_Air⁻¹ [IP] or kg_H₂O kg_Air⁻¹ [SI]}
+\item{hum_ratio}{Humidity ratio in lb_H₂O lb_Air⁻¹ [IP] or kg_H₂O kg_Air⁻¹ [SI]}
 
-\item{pressure}{numeric Atmospheric pressure in Psi [IP] or Pa [SI]}
+\item{pressure}{Atmospheric pressure in Psi [IP] or Pa [SI]}
 }
 \value{
-numeric Partial pressure of water vapor in moist air in Psi [IP] or Pa [SI]
-
-Reference:
-  ASHRAE Handbook - Fundamentals (2017) ch. 1 eqn 20 solved for pw
+Partial pressure of water vapor in moist air in Psi [IP] or Pa [SI]
 }
 \description{
 Return vapor pressure given humidity ratio and pressure.
 }
+\section{Reference}{
+
+  ASHRAE Handbook - Fundamentals (2017) ch. 1 eqn 20 solved for pw
+}
+
