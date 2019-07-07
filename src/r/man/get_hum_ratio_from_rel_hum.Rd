@@ -8,18 +8,20 @@
 get_hum_ratio_from_rel_hum(t_dry_bulb, rel_hum, pressure)
 }
 \arguments{
-\item{t_dry_bulb}{numeric Dry-bulb temperature in °F [IP] or °C [SI]}
+\item{t_dry_bulb}{Dry-bulb temperature in °F [IP] or °C [SI]}
 
-\item{rel_hum}{numeric Relative humidity in range [0, 1]}
+\item{rel_hum}{Relative humidity in range [0, 1]}
 
-\item{pressure}{numeric Atmospheric pressure in Psi [IP] or Pa [SI]}
+\item{pressure}{Atmospheric pressure in Psi [IP] or Pa [SI]}
 }
 \value{
-numeric Humidity ratio in lb_H₂O lb_Air⁻¹ [IP] or kg_H₂O kg_Air⁻¹ [SI]
-
-Reference:
-  ASHRAE Handbook - Fundamentals (2017) ch. 1
+Humidity ratio in lb_H₂O lb_Air⁻¹ [IP] or kg_H₂O kg_Air⁻¹ [SI]
 }
 \description{
 Return humidity ratio given dry-bulb temperature, relative humidity, and pressure.
 }
+\section{Reference}{
+
+  ASHRAE Handbook - Fundamentals (2017) ch. 1
+}
+

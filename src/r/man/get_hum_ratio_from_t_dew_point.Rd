@@ -8,16 +8,18 @@
 get_hum_ratio_from_t_dew_point(t_dew_point, pressure)
 }
 \arguments{
-\item{t_dew_point}{numeric Dew-point temperature in °F [IP] or °C [SI]}
+\item{t_dew_point}{Dew-point temperature in °F [IP] or °C [SI]}
 
 \item{pressure}{Atmospheric pressure in Psi [IP] or Pa [SI]}
 }
 \value{
-numeric Humidity ratio in lb_H₂O lb_Air⁻¹ [IP] or kg_H₂O kg_Air⁻¹ [SI]
-
-Reference:
-  ASHRAE Handbook - Fundamentals (2017) ch. 1 eqn 13
+Humidity ratio in lb_H₂O lb_Air⁻¹ [IP] or kg_H₂O kg_Air⁻¹ [SI]
 }
 \description{
 Return humidity ratio given dew-point temperature and pressure.
 }
+\section{Reference}{
+
+  ASHRAE Handbook - Fundamentals (2017) ch. 1 eqn 13
+}
+

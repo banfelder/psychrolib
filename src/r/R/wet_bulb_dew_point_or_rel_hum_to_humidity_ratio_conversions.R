@@ -4,13 +4,13 @@
 
 #' Return wet-bulb temperature given dry-bulb temperature, humidity ratio, and pressure.
 #'
-#' @param t_dry_bulb numeric Dry-bulb temperature in °F [IP] or °C [SI]
-#' @param hum_ratio numeric Humidity ratio in lb_H₂O lb_Air⁻¹ [IP] or kg_H₂O kg_Air⁻¹ [SI]
-#' @param pressure numeric Atmospheric pressure in Psi [IP] or Pa [SI]
+#' @param t_dry_bulb Dry-bulb temperature in °F [IP] or °C [SI]
+#' @param hum_ratio Humidity ratio in lb_H₂O lb_Air⁻¹ [IP] or kg_H₂O kg_Air⁻¹ [SI]
+#' @param pressure Atmospheric pressure in Psi [IP] or Pa [SI]
 #'
-#' @return numeric Wet-bulb temperature in °F [IP] or °C [SI]
+#' @return Wet-bulb temperature in °F [IP] or °C [SI]
 #'
-#' Reference:
+#' @section Reference:
 #'   ASHRAE Handbook - Fundamentals (2017) ch. 1 eqn 33 and 35 solved for Tstar
 #' @export
 get_t_wet_bulb_from_hum_ratio <- function(t_dry_bulb, hum_ratio, pressure) {
@@ -55,13 +55,13 @@ get_t_wet_bulb_from_hum_ratio <- function(t_dry_bulb, hum_ratio, pressure) {
 
 #' Return humidity ratio given dry-bulb temperature, wet-bulb temperature, and pressure.
 #'
-#' @param t_dry_bulb numeric Dry-bulb temperature in °F [IP] or °C [SI]
-#' @param t_wet_bulb numeric Wet-bulb temperature in °F [IP] or °C [SI]
-#' @param pressure numeric Atmospheric pressure in Psi [IP] or Pa [SI]
+#' @param t_dry_bulb Dry-bulb temperature in °F [IP] or °C [SI]
+#' @param t_wet_bulb Wet-bulb temperature in °F [IP] or °C [SI]
+#' @param pressure Atmospheric pressure in Psi [IP] or Pa [SI]
 #'
-#' @return numeric Humidity ratio in lb_H₂O lb_Air⁻¹ [IP] or kg_H₂O kg_Air⁻¹ [SI]
+#' @return Humidity ratio in lb_H₂O lb_Air⁻¹ [IP] or kg_H₂O kg_Air⁻¹ [SI]
 #'
-#' Reference:
+#' @section Reference:
 #'   ASHRAE Handbook - Fundamentals (2017) ch. 1 eqn 33 and 35
 #' @export
 get_hum_ratio_from_t_wet_bulb <- function(t_dry_bulb, t_wet_bulb, pressure) {
@@ -94,13 +94,13 @@ get_hum_ratio_from_t_wet_bulb <- function(t_dry_bulb, t_wet_bulb, pressure) {
 
 #' Return humidity ratio given dry-bulb temperature, relative humidity, and pressure.
 #'
-#' @param t_dry_bulb numeric Dry-bulb temperature in °F [IP] or °C [SI]
-#' @param rel_hum numeric Relative humidity in range [0, 1]
-#' @param pressure numeric Atmospheric pressure in Psi [IP] or Pa [SI]
+#' @param t_dry_bulb Dry-bulb temperature in °F [IP] or °C [SI]
+#' @param rel_hum Relative humidity in range [0, 1]
+#' @param pressure Atmospheric pressure in Psi [IP] or Pa [SI]
 #'
-#' @return numeric Humidity ratio in lb_H₂O lb_Air⁻¹ [IP] or kg_H₂O kg_Air⁻¹ [SI]
+#' @return Humidity ratio in lb_H₂O lb_Air⁻¹ [IP] or kg_H₂O kg_Air⁻¹ [SI]
 #'
-#' Reference:
+#' @section Reference:
 #'   ASHRAE Handbook - Fundamentals (2017) ch. 1
 #' @export
 get_hum_ratio_from_rel_hum <- function(t_dry_bulb, rel_hum, pressure) {
@@ -113,13 +113,13 @@ get_hum_ratio_from_rel_hum <- function(t_dry_bulb, rel_hum, pressure) {
 
 #' Return relative humidity given dry-bulb temperature, humidity ratio, and pressure.
 #'
-#' @param t_dry_bulb numeric Dry-bulb temperature in °F [IP] or °C [SI]
-#' @param hum_ratio numeric Humidity ratio in lb_H₂O lb_Air⁻¹ [IP] or kg_H₂O kg_Air⁻¹ [SI]
-#' @param pressure numeric Atmospheric pressure in Psi [IP] or Pa [SI]
+#' @param t_dry_bulb Dry-bulb temperature in °F [IP] or °C [SI]
+#' @param hum_ratio Humidity ratio in lb_H₂O lb_Air⁻¹ [IP] or kg_H₂O kg_Air⁻¹ [SI]
+#' @param pressure Atmospheric pressure in Psi [IP] or Pa [SI]
 #'
-#' @return numeric Relative humidity in range [0, 1]
+#' @return Relative humidity in range [0, 1]
 #'
-#' Reference:
+#' @section Reference:
 #'   ASHRAE Handbook - Fundamentals (2017) ch. 1
 #' @export
 get_rel_hum_from_hum_ratio <- function(t_dry_bulb, hum_ratio, pressure) {
@@ -132,12 +132,12 @@ get_rel_hum_from_hum_ratio <- function(t_dry_bulb, hum_ratio, pressure) {
 
 #' Return humidity ratio given dew-point temperature and pressure.
 #'
-#' @param t_dew_point numeric Dew-point temperature in °F [IP] or °C [SI]
+#' @param t_dew_point Dew-point temperature in °F [IP] or °C [SI]
 #' @param pressure Atmospheric pressure in Psi [IP] or Pa [SI]
 #'
-#' @return numeric Humidity ratio in lb_H₂O lb_Air⁻¹ [IP] or kg_H₂O kg_Air⁻¹ [SI]
+#' @return Humidity ratio in lb_H₂O lb_Air⁻¹ [IP] or kg_H₂O kg_Air⁻¹ [SI]
 #'
-#' Reference:
+#' @section Reference:
 #'   ASHRAE Handbook - Fundamentals (2017) ch. 1 eqn 13
 #' @export
 get_hum_ratio_from_t_dew_point <- function(t_dew_point, pressure) {
@@ -147,13 +147,13 @@ get_hum_ratio_from_t_dew_point <- function(t_dew_point, pressure) {
 
 #' Return dew-point temperature given dry-bulb temperature, humidity ratio, and pressure.
 #'
-#' @param t_dry_bulb numeric Dry-bulb temperature in °F [IP] or °C [SI]
-#' @param hum_ratio numeric Humidity ratio in lb_H₂O lb_Air⁻¹ [IP] or kg_H₂O kg_Air⁻¹ [SI]
-#' @param pressure numeric Atmospheric pressure in Psi [IP] or Pa [SI]
+#' @param t_dry_bulb Dry-bulb temperature in °F [IP] or °C [SI]
+#' @param hum_ratio Humidity ratio in lb_H₂O lb_Air⁻¹ [IP] or kg_H₂O kg_Air⁻¹ [SI]
+#' @param pressure Atmospheric pressure in Psi [IP] or Pa [SI]
 #'
-#' @return numeric Dew-point temperature in °F [IP] or °C [SI]
+#' @return Dew-point temperature in °F [IP] or °C [SI]
 #'
-#' Reference:
+#' @section Reference:
 #'   ASHRAE Handbook - Fundamentals (2017) ch. 1
 #' @export
 get_t_dew_point_from_hum_ratio <- function(t_dry_bulb, hum_ratio, pressure) {
