@@ -7,21 +7,25 @@
 get_station_pressure(sea_level_pressure, altitude, t_dry_bulb)
 }
 \arguments{
-\item{sea_level_pressure}{numeric Sea level barometric pressure in Psi [IP] or Pa [SI]}
+\item{sea_level_pressure}{Sea level barometric pressure in Psi [IP] or Pa [SI]}
 
-\item{altitude}{numeric Altitude in ft [IP] or m [SI]}
+\item{altitude}{Altitude in ft [IP] or m [SI]}
 
-\item{t_dry_bulb}{numeric Dry-bulb temperature in °F [IP] or °C [SI]}
+\item{t_dry_bulb}{Dry-bulb temperature in °F [IP] or °C [SI]}
 }
 \value{
-numeric Station pressure in Psi [IP] or Pa [SI]
-
-Reference:
-  See 'GetSeaLevelPressure'
-
-Notes:
-  This function is just the inverse of 'GetSeaLevelPressure'.
+Station pressure in Psi [IP] or Pa [SI]
 }
 \description{
 Return station pressure from sea level pressure.
 }
+\section{Reference}{
+
+  See \code{\link{get_sea_level_pressure}}.
+}
+
+\section{Notes}{
+
+  This function is just the inverse of \code{\link{get_sea_level_pressure}}.
+}
+

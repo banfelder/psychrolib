@@ -7,14 +7,16 @@
 get_standard_atm_pressure(altitude)
 }
 \arguments{
-\item{altitude}{numeric Altitude in ft [IP] or m [SI]}
+\item{altitude}{Altitude in ft [IP] or m [SI]}
 }
 \value{
-numeric Standard atmosphere barometric pressure in Psi [IP] or Pa [SI]
-
-Reference:
-  ASHRAE Handbook - Fundamentals (2017) ch. 1 eqn 3
+Standard atmosphere barometric pressure in Psi [IP] or Pa [SI]
 }
 \description{
 Return standard atmosphere barometric pressure, given the elevation (altitude).
 }
+\section{Reference}{
+
+  ASHRAE Handbook - Fundamentals (2017) ch. 1 eqn 3
+}
+

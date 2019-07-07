@@ -7,23 +7,28 @@
 get_sea_level_pressure(station_pressure, altitude, t_dry_bulb)
 }
 \arguments{
-\item{station_pressure}{numeric Observed station pressure in Psi [IP] or Pa [SI]}
+\item{station_pressure}{Observed station pressure in Psi [IP] or Pa [SI]}
 
-\item{altitude}{numeric Altitude in ft [IP] or m [SI]}
+\item{altitude}{Altitude in ft [IP] or m [SI]}
 
-\item{t_dry_bulb}{numeric Dry-bulb temperature in °F [IP] or °C [SI]}
+\item{t_dry_bulb}{Dry-bulb temperature in °F [IP] or °C [SI]}
 }
 \value{
-numeric Sea level barometric pressure in Psi [IP] or Pa [SI]
-
-Reference:
-  Hess SL, Introduction to theoretical meteorology, Holt Rinehart and Winston, NY 1959,
-  ch. 6.5; Stull RB, Meteorology for scientists and engineers, 2nd edition,
-  Brooks/Cole 2000, ch. 1.
-Notes:
- The standard procedure for the US is to use for TDryBulb the average
- of the current station temperature and the station temperature from 12 hours ago.
+Sea level barometric pressure in Psi [IP] or Pa [SI]
 }
 \description{
 Return sea level pressure given dry-bulb temperature, altitude above sea level and pressure.
 }
+\section{Reference}{
+
+  Hess SL, Introduction to theoretical meteorology, Holt Rinehart and Winston, NY 1959,
+  ch. 6.5; Stull RB, Meteorology for scientists and engineers, 2nd edition,
+  Brooks/Cole 2000, ch. 1.
+}
+
+\section{Notes}{
+
+ The standard procedure for the US is to use for TDryBulb the average
+ of the current station temperature and the station temperature from 12 hours ago.
+}
+

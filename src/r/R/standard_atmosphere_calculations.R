@@ -4,11 +4,11 @@
 
 #' Return standard atmosphere barometric pressure, given the elevation (altitude).
 #'
-#' @param altitude numeric Altitude in ft [IP] or m [SI]
+#' @param altitude Altitude in ft [IP] or m [SI]
 #'
-#' @return numeric Standard atmosphere barometric pressure in Psi [IP] or Pa [SI]
+#' @return Standard atmosphere barometric pressure in Psi [IP] or Pa [SI]
 #'
-#' Reference:
+#' @section Reference:
 #'   ASHRAE Handbook - Fundamentals (2017) ch. 1 eqn 3
 #' @export
 get_standard_atm_pressure <- function(altitude) {
@@ -22,11 +22,11 @@ get_standard_atm_pressure <- function(altitude) {
 
 #' Return standard atmosphere temperature, given the elevation (altitude).
 #'
-#' @param altitude numeric Altitude in ft [IP] or m [SI]
+#' @param altitude Altitude in ft [IP] or m [SI]
 #'
-#' @return numeric Standard atmosphere dry-bulb temperature in °F [IP] or °C [SI]
+#' @return Standard atmosphere dry-bulb temperature in °F [IP] or °C [SI]
 #'
-#' Reference:
+#' @section Reference:
 #'   ASHRAE Handbook - Fundamentals (2017) ch. 1 eqn 4
 #' @export
 get_standard_atm_temperature <- function(altitude) {
@@ -40,17 +40,18 @@ get_standard_atm_temperature <- function(altitude) {
 
 #' Return sea level pressure given dry-bulb temperature, altitude above sea level and pressure.
 #'
-#' @param station_pressure numeric Observed station pressure in Psi [IP] or Pa [SI]
-#' @param altitude numeric Altitude in ft [IP] or m [SI]
-#' @param t_dry_bulb numeric Dry-bulb temperature in °F [IP] or °C [SI]
+#' @param station_pressure Observed station pressure in Psi [IP] or Pa [SI]
+#' @param altitude Altitude in ft [IP] or m [SI]
+#' @param t_dry_bulb Dry-bulb temperature in °F [IP] or °C [SI]
 #'
-#' @return numeric Sea level barometric pressure in Psi [IP] or Pa [SI]
+#' @return Sea level barometric pressure in Psi [IP] or Pa [SI]
 #'
-#' Reference:
+#' @section Reference:
 #'   Hess SL, Introduction to theoretical meteorology, Holt Rinehart and Winston, NY 1959,
 #'   ch. 6.5; Stull RB, Meteorology for scientists and engineers, 2nd edition,
 #'   Brooks/Cole 2000, ch. 1.
-#' Notes:
+#'
+#' @section Notes:
 #'  The standard procedure for the US is to use for TDryBulb the average
 #'  of the current station temperature and the station temperature from 12 hours ago.
 #' @export
@@ -74,17 +75,17 @@ get_sea_level_pressure <- function(station_pressure, altitude, t_dry_bulb) {
 
 #' Return station pressure from sea level pressure.
 #'
-#' @param sea_level_pressure numeric Sea level barometric pressure in Psi [IP] or Pa [SI]
-#' @param altitude numeric Altitude in ft [IP] or m [SI]
-#' @param t_dry_bulb numeric Dry-bulb temperature in °F [IP] or °C [SI]
+#' @param sea_level_pressure Sea level barometric pressure in Psi [IP] or Pa [SI]
+#' @param altitude Altitude in ft [IP] or m [SI]
+#' @param t_dry_bulb Dry-bulb temperature in °F [IP] or °C [SI]
 #'
-#' @return numeric Station pressure in Psi [IP] or Pa [SI]
+#' @return Station pressure in Psi [IP] or Pa [SI]
 #'
-#' Reference:
-#'   See 'GetSeaLevelPressure'
+#' @section Reference:
+#'   See \code{\link{get_sea_level_pressure}}.
 #'
-#' Notes:
-#'   This function is just the inverse of 'GetSeaLevelPressure'.
+#' @section Notes:
+#'   This function is just the inverse of \code{\link{get_sea_level_pressure}}.
 #'@export
 get_station_pressure <- function(sea_level_pressure, altitude, t_dry_bulb) {
   sea_level_pressure / get_sea_level_pressure(1.0, altitude, t_dry_bulb)

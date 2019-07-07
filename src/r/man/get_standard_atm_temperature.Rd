@@ -7,14 +7,16 @@
 get_standard_atm_temperature(altitude)
 }
 \arguments{
-\item{altitude}{numeric Altitude in ft [IP] or m [SI]}
+\item{altitude}{Altitude in ft [IP] or m [SI]}
 }
 \value{
-numeric Standard atmosphere dry-bulb temperature in °F [IP] or °C [SI]
-
-Reference:
-  ASHRAE Handbook - Fundamentals (2017) ch. 1 eqn 4
+Standard atmosphere dry-bulb temperature in °F [IP] or °C [SI]
 }
 \description{
 Return standard atmosphere temperature, given the elevation (altitude).
 }
+\section{Reference}{
+
+  ASHRAE Handbook - Fundamentals (2017) ch. 1 eqn 4
+}
+
